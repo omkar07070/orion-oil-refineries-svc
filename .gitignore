@@ -1,11 +1,14 @@
 # Dependencies
 node_modules/
 
-# Build output
+# Build output — generated on each build
 dist/
 dist-ssr/
 
-# Environment files (contain secrets)
+# Vite cache
+.vite/
+
+# Environment files — NEVER commit secrets
 .env
 .env.local
 .env.*.local
@@ -21,11 +24,9 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 
-# IDE
+# IDE settings — team members should use their own
 .vscode/
 .idea/
-*.swp
-*.swo
 
 # Cache files
 .cache/
@@ -35,6 +36,3 @@ Thumbs.db
 
 # Testing
 coverage/
-
-# Misc
-*.local

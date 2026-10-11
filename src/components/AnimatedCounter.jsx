@@ -37,7 +37,7 @@ export default function AnimatedCounter({ value, label, className = '' }) {
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5 }}
-      className={`bg-ink-soft border border-ink-border rounded-xl p-6 md:p-8 text-center ${className}`}
+      className={`bg-ink-soft border border-ink-border rounded-xl p-5 md:p-6 text-center ${className}`}
     >
       <h4 className="text-3xl md:text-4xl font-bold text-gold mb-2">
         {isTextValue ? value : `${displayValue.toLocaleString()}${suffix}`}

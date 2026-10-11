@@ -32,7 +32,7 @@ export default function Industries() {
       />
 
       {/* Industries Grid */}
-      <section className="py-16 md:py-24 bg-ink relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-ink relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,_#1a2230_0%,transparent_60%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -49,7 +49,7 @@ export default function Industries() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-20 bg-ink border-t border-ink-border">
+      <section className="py-12 md:py-16 bg-ink border-t border-ink-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-5">{industriesPage.cta.title}</h2>
           <p className="text-slate mb-10 max-w-2xl mx-auto">{industriesPage.cta.description}</p>

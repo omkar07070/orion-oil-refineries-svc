@@ -20,19 +20,19 @@ export default function Contact() {
       />
 
       {/* Get In Touch + Form */}
-      <section className="py-16 md:py-24 bg-ink relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-ink relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,_#1a2230_0%,transparent_55%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Contact Info — dark panel */}
             <AnimateOnScroll>
-              <div className="bg-ink border border-ink-border rounded-xl p-8 md:p-10">
-                <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-6 block">
+              <div className="bg-ink border border-ink-border rounded-xl p-6 md:p-8">
+                <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-4 block">
                   Contact Information
                 </span>
                 <h3 className="text-2xl font-bold text-white mb-8">Get In Touch</h3>
 
-                <div className="space-y-6">
+                <div className="space-y-5">
                   {/* Address */}
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full border-2 border-gold flex items-center justify-center flex-shrink-0">
@@ -75,12 +75,12 @@ export default function Contact() {
                 </div>
 
                 {/* WhatsApp CTA */}
-                <div className="mt-10 pt-8 border-t border-ink-border">
+                <div className="mt-6 pt-6 border-t border-ink-border">
                   <a
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 w-full py-4 bg-[#25D366] text-white font-semibold rounded-full transition-colors duration-200 hover:bg-[#128C7E] min-h-[52px]"
+                    className="flex items-center justify-center gap-3 w-full py-3.5 bg-[#25D366] text-white font-semibold rounded-full transition-colors duration-200 hover:bg-[#128C7E] min-h-[48px]"
                   >
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
@@ -93,7 +93,7 @@ export default function Contact() {
 
             {/* Quote Form */}
             <AnimateOnScroll delay={0.1}>
-              <div className="bg-ink-soft border border-ink-border rounded-xl p-8 md:p-10">
+              <div className="bg-ink-soft border border-ink-border rounded-xl p-6 md:p-8">
                 <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-2 block">
                   Send Us a Message
                 </span>
@@ -103,16 +103,16 @@ export default function Contact() {
                 <form onSubmit={(e) => { e.preventDefault(); setIsQuoteModalOpen(true); }}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <label className="block text-sm font-medium text-white mb-1.5">Name *</label>
-                      <input type="text" required className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors" />
+                      <label htmlFor="contact-name" className="block text-sm font-medium text-white mb-1.5">Name *</label>
+                      <input id="contact-name" type="text" required className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-white mb-1.5">Company Name *</label>
-                      <input type="text" required className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors" />
+                      <label htmlFor="contact-company" className="block text-sm font-medium text-white mb-1.5">Company Name *</label>
+                      <input id="contact-company" type="text" required className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-white mb-1.5">Country Code</label>
-                      <select className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors">
+                      <label htmlFor="contact-country" className="block text-sm font-medium text-white mb-1.5">Country Code</label>
+                      <select id="contact-country" className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors">
                         <option value="+91">+91 (India)</option>
                         <option value="+1">+1 (USA)</option>
                         <option value="+44">+44 (UK)</option>
@@ -120,22 +120,22 @@ export default function Contact() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-white mb-1.5">Contact No *</label>
-                      <input type="tel" required className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors" />
+                      <label htmlFor="contact-phone" className="block text-sm font-medium text-white mb-1.5">Contact No *</label>
+                      <input id="contact-phone" type="tel" required className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-white mb-1.5">Email ID *</label>
-                      <input type="email" required className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors" />
+                      <label htmlFor="contact-email" className="block text-sm font-medium text-white mb-1.5">Email ID *</label>
+                      <input id="contact-email" type="email" required className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-white mb-1.5">GST No</label>
-                      <input type="text" className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors" />
+                      <label htmlFor="contact-gst" className="block text-sm font-medium text-white mb-1.5">GST No</label>
+                      <input id="contact-gst" type="text" className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors" />
                     </div>
                   </div>
 
                   <div className="mb-4">
-                    <label className="block text-sm font-medium text-white mb-1.5">Requirement *</label>
-                    <select required className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors">
+                    <label htmlFor="contact-requirement" className="block text-sm font-medium text-white mb-1.5">Requirement *</label>
+                    <select id="contact-requirement" required className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors">
                       <option value="">Select a product</option>
                       <option value="Base Oil SN150">Base Oil SN-150</option>
                       <option value="Base Oil SN300">Base Oil SN-300</option>
@@ -145,8 +145,9 @@ export default function Contact() {
                   </div>
 
                   <div className="mb-6">
-                    <label className="block text-sm font-medium text-white mb-1.5">More Information</label>
+                    <label htmlFor="contact-message" className="block text-sm font-medium text-white mb-1.5">More Information</label>
                     <textarea
+                      id="contact-message"
                       rows={3}
                       placeholder="Please describe your specific requirements..."
                       className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors resize-none"
@@ -167,7 +168,7 @@ export default function Contact() {
       </section>
 
       {/* Dispatch Options */}
-      <section className="py-16 md:py-20 bg-ink-soft">
+      <section className="py-12 md:py-16 bg-ink-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="DISPATCH"

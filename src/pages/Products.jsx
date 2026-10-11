@@ -26,9 +26,9 @@ function ProductBlock({ product, reverse = false, index }) {
           </div>
 
           {/* Content */}
-          <div className={`p-8 lg:p-10 ${reverse ? 'lg:order-1' : ''}`}>
-            <h3 className="text-gold font-semibold text-base mb-4 leading-snug">{product.name}</h3>
-            <p className="text-slate text-sm leading-relaxed mb-6">{product.description}</p>
+          <div className={`p-6 lg:p-8 ${reverse ? 'lg:order-1' : ''}`}>
+            <h3 className="text-gold font-semibold text-base mb-2 leading-snug">{product.name}</h3>
+            <p className="text-slate text-sm leading-relaxed mb-4">{product.description}</p>
             <div className="flex flex-wrap gap-3">
               {product.specsPdf && product.specsPdf !== '#' ? (
                 <a
@@ -77,7 +77,7 @@ export default function Products() {
       />
 
       {/* Base Oils */}
-      <section id="base-oils" className="py-16 md:py-24 bg-ink relative overflow-hidden">
+      <section id="base-oils" className="py-12 md:py-20 bg-ink relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,_#1a2230_0%,transparent_50%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <SectionHeader
@@ -86,7 +86,7 @@ export default function Products() {
             titleAccent="Group II Base Oils"
             subtitle={productsPage.baseOils.subtitle}
           />
-          <div className="space-y-8">
+          <div className="space-y-6">
             {productsPage.baseOils.products.map((product, i) => (
               <ProductBlock
                 key={product.id}
@@ -99,7 +99,7 @@ export default function Products() {
       </section>
 
       {/* Industrial Fuels */}
-      <section id="industrial-fuels" className="py-16 md:py-24 bg-ink-soft">
+      <section id="industrial-fuels" className="py-12 md:py-20 bg-ink-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="INDUSTRIAL FUELS"
@@ -115,7 +115,7 @@ export default function Products() {
       </section>
 
       {/* Asphalt / Bitumen */}
-      <section id="asphalt-bitumen" className="py-16 md:py-24 bg-ink relative overflow-hidden">
+      <section id="asphalt-bitumen" className="py-12 md:py-20 bg-ink relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,_#1a2230_0%,transparent_55%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -133,7 +133,7 @@ export default function Products() {
       </section>
 
       {/* Dispatch Options */}
-      <section className="py-16 md:py-24 bg-ink-soft">
+      <section className="py-12 md:py-20 bg-ink-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="DISPATCH"
@@ -151,7 +151,7 @@ export default function Products() {
                 transition={{ duration: 0.3, delay: i * 0.1 }}
                 className="bg-ink-soft border border-ink-border rounded-xl p-6 text-center"
               >
-                <div className="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center mx-auto mb-4">
+                <div className="w-10 h-10 rounded-full border-2 border-gold flex items-center justify-center mx-auto mb-3">
                   <svg className="w-6 h-6 text-gold" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>

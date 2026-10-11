@@ -13,13 +13,13 @@ function AboutBlock({ title, subtitle, content, reverse = false, eyebrow, imageS
       <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${reverse ? 'lg:flex-row-reverse' : ''}`}>
         <div className={reverse ? 'lg:order-2' : ''}>
           {eyebrow && (
-            <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-3 block">
+            <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-2 block">
               {eyebrow}
             </span>
           )}
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">{title}</h3>
           {subtitle && (
-            <h4 className="text-base text-gold mb-5 font-medium">{subtitle}</h4>
+            <h4 className="text-base text-gold mb-4 font-medium">{subtitle}</h4>
           )}
           {content.map((paragraph, i) => (
             <p key={i} className="text-slate mb-4 leading-relaxed last:mb-0">{paragraph}</p>
@@ -65,9 +65,8 @@ export default function About() {
       />
 
       {/* Who We Are */}
-      <section className="py-16 md:py-24 bg-ink relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_60%,_#1a2230_0%,transparent_55%)] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="py-12 md:py-20 bg-ink">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AboutBlock
             eyebrow="WHO WE ARE"
             title={aboutPage.whoWeAre.title}
@@ -78,35 +77,35 @@ export default function About() {
       </section>
 
       {/* Mission */}
-      <section className="py-16 md:py-24 bg-ink-soft">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AboutBlock
-            eyebrow="OUR MISSION"
-            title={aboutPage.mission.title}
-            subtitle={aboutPage.mission.subtitle}
-            content={aboutPage.mission.content}
-            reverse
-            iconLabel="Orion Oil Mission"
-          />
+      <section className="py-12 md:py-20 bg-ink-soft">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimateOnScroll>
+            <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-3 block">OUR MISSION</span>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">{aboutPage.mission.title}</h3>
+            <h4 className="text-base text-gold mb-6 font-medium">{aboutPage.mission.subtitle}</h4>
+            {aboutPage.mission.content.map((para, i) => (
+              <p key={i} className="text-slate mb-4 leading-relaxed last:mb-0">{para}</p>
+            ))}
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* Vision */}
-      <section className="py-16 md:py-24 bg-ink relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,_#1a2230_0%,transparent_55%)] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <AboutBlock
-            eyebrow="OUR VISION"
-            title={aboutPage.vision.title}
-            subtitle={aboutPage.vision.subtitle}
-            content={aboutPage.vision.content}
-            iconLabel="Orion Oil Vision"
-          />
+      <section className="py-12 md:py-20 bg-ink">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimateOnScroll>
+            <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-3 block">OUR VISION</span>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">{aboutPage.vision.title}</h3>
+            <h4 className="text-base text-gold mb-6 font-medium">{aboutPage.vision.subtitle}</h4>
+            {aboutPage.vision.content.map((para, i) => (
+              <p key={i} className="text-slate mb-4 leading-relaxed last:mb-0">{para}</p>
+            ))}
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* Facility */}
-      <section className="py-16 md:py-24 bg-ink-soft">
+      <section className="py-12 md:py-20 bg-ink-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="OUR FACILITY"
@@ -115,19 +114,19 @@ export default function About() {
             subtitle={aboutPage.facility.subtitle}
           />
 
-          <AnimateOnScroll className="bg-ink-soft border border-ink-border rounded-xl p-10 md:p-16 text-center">
-            <div className="w-20 h-20 bg-gold rounded-full flex items-center justify-center mx-auto mb-8">
-              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+          <AnimateOnScroll className="bg-ink border border-ink-border rounded-xl p-6 md:p-8 text-center">
+            <div className="w-12 h-12 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="text-xl font-bold text-white mb-2">
               Coming Soon — {aboutPage.facility.comingSoon}
             </h3>
-            <p className="text-slate max-w-xl mx-auto mb-10">
+            <p className="text-slate text-sm max-w-md mx-auto mb-6">
               Expanding our capabilities with a new advanced facility that will significantly increase processing capacity.
             </p>
-            <div className="flex justify-center gap-12 flex-wrap">
+            <div className="flex justify-center gap-8 flex-wrap">
               {aboutPage.facility.specs.map((spec) => (
                 <div key={spec.label} className="text-center">
                   <h4 className="text-3xl font-bold text-gold mb-1">{spec.value}</h4>
@@ -140,12 +139,12 @@ export default function About() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 md:py-24 bg-ink">
+      <section className="py-12 md:py-20 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="WHY ORION OIL"
             title="Why Choose"
-            titleAccent="Orion Oil"
+            titleAccent="ORION OIL"
             subtitle="Our competitive advantages set us apart"
           />
 
@@ -160,10 +159,10 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-ink border-t border-ink-border">
+      <section className="py-12 md:py-16 bg-ink border-t border-ink-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-5">Ready to Partner with Orion Oil?</h2>
-          <p className="text-slate mb-10 max-w-2xl mx-auto">Experience the difference of domestic quality and reliability.</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Ready to Partner with Orion Oil?</h2>
+          <p className="text-slate mb-6 max-w-2xl mx-auto">Experience the difference of domestic quality and reliability.</p>
           <button
             onClick={() => setIsQuoteModalOpen(true)}
             className="inline-flex items-center px-6 py-3 bg-gold text-white font-semibold rounded-full transition-all duration-200 hover:bg-gold-light min-h-[48px]"

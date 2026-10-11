@@ -9,8 +9,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-ink border-t border-ink-border text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 mb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8">
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-3 mb-4">
@@ -70,6 +70,16 @@ export default function Footer() {
                   className="text-slate text-sm hover:text-gold transition-colors duration-200"
                 >
                   WhatsApp
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/orion-oil-and-gas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate text-sm hover:text-gold transition-colors duration-200"
+                >
+                  LinkedIn
                 </a>
               </li>
             </ul>

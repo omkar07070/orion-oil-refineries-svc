@@ -146,36 +146,36 @@ export default function QuoteModal({ isOpen, onClose, preselectedProduct = '' })
                   <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-white mb-1.5">Name *</label>
-                      <input type="text" name="name" value={formData.name} onChange={handleChange} required className={inputClass} />
+                      <label htmlFor="quote-name" className="block text-sm font-medium text-white mb-1.5">Name *</label>
+                      <input id="quote-name" type="text" name="name" value={formData.name} onChange={handleChange} required className={inputClass} />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-white mb-1.5">Company Name *</label>
-                      <input type="text" name="company" value={formData.company} onChange={handleChange} required className={inputClass} />
+                      <label htmlFor="quote-company" className="block text-sm font-medium text-white mb-1.5">Company Name *</label>
+                      <input id="quote-company" type="text" name="company" value={formData.company} onChange={handleChange} required className={inputClass} />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-white mb-1.5">Country Code</label>
-                      <select name="countryCode" value={formData.countryCode} onChange={handleChange} className={inputClass}>
+                      <label htmlFor="quote-country" className="block text-sm font-medium text-white mb-1.5">Country Code</label>
+                      <select id="quote-country" name="countryCode" value={formData.countryCode} onChange={handleChange} className={inputClass}>
                         {quoteForm.countryCodes.map((code) => (
                           <option key={code.value} value={code.value}>{code.label}</option>
                         ))}
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-white mb-1.5">Contact No *</label>
-                      <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className={inputClass} />
+                      <label htmlFor="quote-phone" className="block text-sm font-medium text-white mb-1.5">Contact No *</label>
+                      <input id="quote-phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} required className={inputClass} />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-white mb-1.5">Email ID *</label>
-                      <input type="email" name="email" value={formData.email} onChange={handleChange} required className={inputClass} />
+                      <label htmlFor="quote-email" className="block text-sm font-medium text-white mb-1.5">Email ID *</label>
+                      <input id="quote-email" type="email" name="email" value={formData.email} onChange={handleChange} required className={inputClass} />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-white mb-1.5">GST No</label>
-                      <input type="text" name="gst" value={formData.gst} onChange={handleChange} className={inputClass} />
+                      <label htmlFor="quote-gst" className="block text-sm font-medium text-white mb-1.5">GST No</label>
+                      <input id="quote-gst" type="text" name="gst" value={formData.gst} onChange={handleChange} className={inputClass} />
                     </div>
                     <div className="sm:col-span-2">
-                      <label className="block text-sm font-medium text-white mb-1.5">Requirement *</label>
-                      <select name="requirement" value={formData.requirement} onChange={handleChange} required className={inputClass}>
+                      <label htmlFor="quote-requirement" className="block text-sm font-medium text-white mb-1.5">Requirement *</label>
+                      <select id="quote-requirement" name="requirement" value={formData.requirement} onChange={handleChange} required className={inputClass}>
                         <option value="">Select a product</option>
                         {quoteForm.requirementOptions.map((opt) => (
                           <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -183,8 +183,9 @@ export default function QuoteModal({ isOpen, onClose, preselectedProduct = '' })
                       </select>
                     </div>
                     <div className="sm:col-span-2">
-                      <label className="block text-sm font-medium text-white mb-1.5">More Information</label>
+                      <label htmlFor="quote-message" className="block text-sm font-medium text-white mb-1.5">More Information</label>
                       <textarea
+                        id="quote-message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}

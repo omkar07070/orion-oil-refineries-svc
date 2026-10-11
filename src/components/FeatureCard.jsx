@@ -13,7 +13,7 @@ export default function FeatureCard({ title, description, delay = 0, icon }) {
       viewport={{ once: true, margin: '-50px' }}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.4, delay }}
-      className="bg-ink-soft border border-ink-border rounded-xl p-6 md:p-8 text-center"
+      className="bg-ink-soft border border-ink-border rounded-xl p-5 md:p-6 text-center"
     >
       {/* Gold outline icon circle */}
       {icon && (
@@ -22,7 +22,7 @@ export default function FeatureCard({ title, description, delay = 0, icon }) {
         </div>
       )}
 
-      <h4 className="text-white font-semibold text-base md:text-lg mb-3">{title}</h4>
+      <h4 className="text-white font-semibold text-base md:text-lg mb-2">{title}</h4>
       <p className="text-slate text-sm leading-relaxed">{description}</p>
     </motion.div>
   )

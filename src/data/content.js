@@ -94,7 +94,7 @@ export const homePage = {
 export const aboutPage = {
   pageHeader: {
     title: 'About',
-    titleAccent: 'Orion Oil',
+    titleAccent: 'ORION OIL',
     subtitle: 'The Circular Economy, Engineered for Excellence',
   },
   whoWeAre: {
@@ -184,7 +184,7 @@ export const productsPage = {
         id: 'sn300',
         name: 'PREMIUM BASE OIL SN-300 EQUIVALENT',
         description:
-          'A heavier, superior quality Group II equivalent base oil offering exceptional film strength and thermal stability. Processed via deep-vacuum distillation with precision gas-fired thermic heating to ensure zero thermal cracking. Perfect for heavy-duty gear oils, metalworking fluids, and robust industrial applications.',
+          'A heavier, superior quality Group I equivalent base oil offering exceptional film strength and thermal stability. Processed via deep-vacuum distillation with precision gas-fired thermic heating to ensure zero thermal cracking. Perfect for heavy-duty gear oils, metalworking fluids, and robust industrial applications.',
         specsPdf: '/docs/base-oil-sn300-specs.pdf',
       },
     ],

@@ -12,16 +12,16 @@ export default function SectionHeader({
   className = '',
 }) {
   return (
-    <div className={`mb-12 md:mb-16 ${centered ? 'text-center' : ''} ${className}`}>
+    <div className={`mb-8 md:mb-12 ${centered ? 'text-center' : ''} ${className}`}>
       {/* Eyebrow label */}
       {eyebrow && (
-        <span className="inline-block text-gold uppercase tracking-widest text-xs font-semibold mb-4">
+        <span className="inline-block text-gold uppercase tracking-widest text-xs font-semibold mb-2">
           {eyebrow}
         </span>
       )}
 
       {/* Main heading */}
-      <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+      <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
         {title}
         {titleAccent && <span className="text-gold"> {titleAccent}</span>}
       </h2>

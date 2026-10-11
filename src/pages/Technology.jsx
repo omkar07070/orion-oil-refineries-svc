@@ -68,14 +68,14 @@ export default function Technology() {
       />
 
       {/* SECTION 2 — Advanced Vacuum Distillation */}
-      <section className="py-16 md:py-24 bg-ink relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-ink relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,_#1a2230_0%,transparent_55%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* Intro paragraphs */}
           <AnimateOnScroll>
-            <div className="bg-ink-soft border border-ink-border rounded-xl p-8 md:p-12 mb-12">
+            <div className="bg-ink-soft border border-ink-border rounded-xl p-6 md:p-8 mb-8">
               {vacuumDistillation.intro.map((para, i) => (
-                <p key={i} className="text-slate mb-4 leading-relaxed last:mb-0">
+                <p key={i} className="text-slate mb-3 last:mb-0 leading-relaxed">
                   {para}
                 </p>
               ))}
@@ -83,7 +83,7 @@ export default function Technology() {
           </AnimateOnScroll>
 
           {/* 3 Pillars as feature blocks — single column on mobile, alternating layout on desktop */}
-          <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-6 block">
+          <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-4 block">
             Core Technical Pillars
           </span>
           <div className="space-y-6 md:space-y-8">
@@ -122,12 +122,12 @@ export default function Technology() {
           </div>
 
           {/* Result callout block — gold left-border to signal section conclusion */}
-          <AnimateOnScroll className="mt-10">
-            <div className="bg-ink border border-ink-border border-l-4 border-l-gold rounded-xl p-8 md:p-12">
-              <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-4 block">
+          <AnimateOnScroll className="mt-8">
+            <div className="bg-ink border border-ink-border border-l-4 border-l-gold rounded-xl p-6 md:p-8">
+              <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-3 block">
                 The Result
               </span>
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+              <h3 className="text-lg md:text-xl font-bold text-white mb-3">
                 Uncompromised Molecular Integrity
               </h3>
               <p className="text-slate leading-relaxed">{vacuumDistillation.result}</p>
@@ -137,7 +137,7 @@ export default function Technology() {
       </section>
 
       {/* SECTION 3 — Our Refining Process */}
-      <section id="refining-process" className="py-16 md:py-24 bg-ink-soft">
+      <section id="refining-process" className="py-12 md:py-20 bg-ink-soft">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Vertical timeline with connecting line */}
           <AnimateOnScroll>
@@ -156,7 +156,7 @@ export default function Technology() {
       </section>
 
       {/* SECTION 4 — Process Yield Summary */}
-      <section className="py-16 md:py-24 bg-ink relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-ink relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_40%_60%,_#1a2230_0%,transparent_55%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <SectionHeader

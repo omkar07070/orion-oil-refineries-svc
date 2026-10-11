@@ -7,13 +7,13 @@ import { qualityPage } from '../data/content'
 
 function QualityBox({ title, eyebrow, children }) {
   return (
-    <div className="bg-ink-soft border border-ink-border rounded-xl p-8">
+    <div className="bg-ink-soft border border-ink-border rounded-xl p-6 md:p-8">
       {eyebrow && (
-        <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-4 block">
+        <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-3 block">
           {eyebrow}
         </span>
       )}
-      <h3 className="text-xl font-semibold text-white mb-6 pb-4 border-b border-ink-border">
+      <h3 className="text-lg font-semibold text-white mb-4 pb-3 border-b border-ink-border">
         {title}
       </h3>
       {children}
@@ -47,7 +47,7 @@ export default function Quality() {
       />
 
       {/* Quality Assurance */}
-      <section className="py-16 md:py-24 bg-ink relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-ink relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,_#1a2230_0%,transparent_55%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <SectionHeader
@@ -57,10 +57,10 @@ export default function Quality() {
             subtitle={qualityPage.qualityAssurance.subtitle}
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
             <AnimateOnScroll>
               <QualityBox eyebrow="QUALITY COMMITMENT" title="Our Quality Commitment">
-                <p className="text-slate mb-6 leading-relaxed">{qualityPage.qualityAssurance.description}</p>
+                <p className="text-slate mb-4 leading-relaxed">{qualityPage.qualityAssurance.description}</p>
                 <ul className="space-y-3">
                   {qualityPage.qualityAssurance.points.map((point, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-slate">
@@ -81,10 +81,10 @@ export default function Quality() {
 
             <AnimateOnScroll delay={0.1}>
               <QualityBox eyebrow="LABORATORY EQUIPMENT" title="Advanced Analysis">
-                <p className="text-slate mb-6 leading-relaxed">
+                <p className="text-slate mb-4 leading-relaxed">
                   Partnering with NABL accredited external laboratories to independently verify molecular makeup.
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {qualityPage.qualityAssurance.equipment.map((eq, i) => (
                     <EquipmentCard key={eq.name} name={eq.name} description={eq.description} index={i} />
                   ))}
@@ -96,7 +96,7 @@ export default function Quality() {
       </section>
 
       {/* Test Parameters Table */}
-      <section className="py-16 md:py-24 bg-ink-soft">
+      <section className="py-12 md:py-20 bg-ink-soft">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="TEST STANDARDS"
@@ -148,7 +148,7 @@ export default function Quality() {
       </section>
 
       {/* Sustainability */}
-      <section className="py-16 md:py-24 bg-ink relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-ink relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,_#1a2230_0%,transparent_55%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <SectionHeader
@@ -158,13 +158,13 @@ export default function Quality() {
             subtitle={qualityPage.sustainability.subtitle}
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
             <AnimateOnScroll className="lg:col-span-3">
-              <div className="bg-ink-soft border border-ink-border rounded-xl p-8 h-full">
-                <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-4 block">
+              <div className="bg-ink-soft border border-ink-border rounded-xl p-6 md:p-8 h-full">
+                <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-3 block">
                   Our Green Promise
                 </span>
-                <p className="text-slate mb-6 leading-relaxed">{qualityPage.sustainability.description}</p>
+                <p className="text-slate mb-4 leading-relaxed">{qualityPage.sustainability.description}</p>
                 <ul className="space-y-3">
                   {qualityPage.sustainability.points.map((point, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-slate">
@@ -193,9 +193,9 @@ export default function Quality() {
       </section>
 
       {/* Environmental Impact */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-gold to-gold-dark text-white">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-gold to-gold-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-10 text-center">Environmental Impact by the Numbers</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Environmental Impact by the Numbers</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {qualityPage.environmentalImpact.map((item) => (
               <AnimatedCounter key={item.label} value={item.value} label={item.label} />

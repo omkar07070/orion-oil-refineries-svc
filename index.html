@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {/* Tiny JS-detection: adds "js" class to <html> so CSS can scope hidden states to JS-only */}
+    <script>document.documentElement.classList.add('js')</script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Orion Oil - Premium base oils and industrial fuels, sustainably refined in Pune, Maharashtra. Leading the circular economy in lubricants." />
+    <meta name="description" content="Orion Oil — Premium base oils and industrial fuels refined from 100% recycled feedstocks in Pune, Maharashtra. Group II equivalent quality. Zero-waste circular economy. EPR compliant." />
+    <meta name="keywords" content="base oil, recycled base oil, SN-150, SN-300, industrial fuels, LDO, bitumen, asphalt modifier, lubricant manufacturers, circular economy, Pune, India" />
     <title>Orion Oil | Engineering the Future of Sustainable Lubricants</title>
+
+    {/* Open Graph / Social */}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Orion Oil | Premium Base Oils & Industrial Fuels" />
+    <meta property="og:description" content="Premium base oils and industrial fuels refined from 100% recycled feedstocks. 100% domestic — no import dependency. EPR compliant." />
+    <meta property="og:url" content="https://orionoils.com" />
+    <meta property="og:image" content="/images/og-image.jpg" />
+
+    {/* Schema.org Organization */}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Orion Oil and Gas",
+        "url": "https://orionoils.com",
+        "logo": "https://orionoils.com/favicon.svg",
+        "description": "Premium base oils and industrial fuels refined from 100% recycled feedstocks in MIDC Bhosari, Pune, Maharashtra, India.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "S-32, MIDC Bhosari",
+          "addressLocality": "Pune",
+          "addressRegion": "Maharashtra",
+          "postalCode": "411026",
+          "addressCountry": "IN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-8275635579",
+          "email": "orionoilandgas@gmail.com",
+          "contactType": "Sales"
+        }
+      }
+    </script>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

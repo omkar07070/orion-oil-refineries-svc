@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { navLinks } from '../data/content'
+import { navLinks, WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '../data/content'
 
 /**
  * Gold flame/drop icon mark — SVG inline
@@ -41,6 +41,7 @@ function LogoMark() {
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
@@ -209,7 +210,7 @@ export default function Header() {
                   Request for Quote
                 </Link>
                 <a
-                  href="https://wa.me/918275635579?text=Hello%21%20I%20am%20interested%20in%20Orion%20Oil%20products."
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={closeMenu}
