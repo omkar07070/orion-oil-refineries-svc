@@ -1,4 +1,0 @@
-# Cloudflare Pages SPA routing
-# Serve index.html with HTTP 200 for all client-side routes
-# Static files (images/, specs/, docs/) are served directly — no redirect rules needed
-/*    /index.html   200

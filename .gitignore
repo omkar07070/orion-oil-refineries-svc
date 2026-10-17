@@ -1,44 +1,47 @@
-# Dependencies
+# Dependencies and builds
 node_modules/
-
-# Build output — generated on each build
 dist/
 dist-ssr/
-
-# Vite cache
-.vite/
+.wrangler/
 
 # Environment files — NEVER commit secrets
 .env
 .env.local
 .env.*.local
+!.env.example
+.dev.vars
 
 # Logs
 logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
+pnpm-debug.log*
 
-# OS files
+# OS and sync junk
 .DS_Store
 Thumbs.db
+desktop.ini
+~$*
+*.tmp
 
-# IDE settings — team members should use their own
-.vscode/
+# Editor
 .idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 
-# Cache files
+# Cache and coverage
+.vite/
 .cache/
 .parcel-cache/
 .eslintcache
 .stylelintcache
-
-# Testing
 coverage/
 
-# Claude Code memory / session state
+# Claude Code session state
 .claude/
 
-# Playwright test results
+# Playwright and test results
 test-results/
