@@ -1,0 +1,11 @@
+# Cloudflare Pages SPA routing
+# IMPORTANT: /specs/* must NOT be listed here — place real PDF files in public/specs/
+# and they will be served directly (Cloudflare Pages serves static files before redirect rules)
+/                   200
+/about              200
+/products           200
+/technology         200
+/quality            200
+/industries         200
+/contact            200
+/*                  /index.html   200

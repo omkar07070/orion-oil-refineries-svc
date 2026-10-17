@@ -6,17 +6,17 @@ import QuoteModal from '../components/QuoteModal'
 import SectionHeader from '../components/SectionHeader'
 import { industriesPage } from '../data/content'
 
-// Image map: industry index → image path
+// Image map: industry index → image path (matching actual files in public/images/industries/)
 const industryImages = [
-  '/images/industries/lubricant-manufacturers.jpg',
-  '/images/industries/hydraulic-oil-blenders.jpg',
-  '/images/industries/gear-oil-producers.jpg',
-  '/images/industries/boiler-furnace.jpg',
-  '/images/industries/road-construction.jpg',
-  '/images/industries/waterproofing-coatings.jpg',
-  '/images/industries/heavy-engineering.jpg',
-  '/images/industries/infrastructure.jpg',
-  '/images/industries/industrial-manufacturing.jpg',
+  '/images/industries/orion-oil-industry-lubricant-manufacturers.svg',
+  '/images/industries/orion-oil-industry-hydraulic-oil-blenders.svg',
+  '/images/industries/orion-oil-industry-gear-oil-producers.svg',
+  '/images/industries/orion-oil-industry-boiler-furnace.svg',
+  '/images/industries/orion-oil-industry-road-construction.svg',
+  '/images/industries/orion-oil-industry-waterproofing-coatings.svg',
+  '/images/industries/orion-oil-industry-heavy-engineering.svg',
+  '/images/industries/orion-oil-industry-infrastructure.svg',
+  '/images/industries/orion-oil-industry-industrial-manufacturing.svg',
 ]
 
 export default function Industries() {

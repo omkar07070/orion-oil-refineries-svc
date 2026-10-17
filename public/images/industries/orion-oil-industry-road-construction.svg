@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Asphalt paver and road roller laying a new road surface">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141C27"/><stop offset="1" stop-color="#080B0F"/></linearGradient>
+<radialGradient id="glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#C6912F" stop-opacity=".30"/><stop offset="1" stop-color="#C6912F" stop-opacity="0"/></radialGradient>
+<pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.6" fill="#C6912F" fill-opacity=".15"/></pattern>
+<linearGradient id="oilL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6DC8A"/><stop offset="1" stop-color="#DDA93A"/></linearGradient>
+<linearGradient id="oilD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D58E2A"/><stop offset="1" stop-color="#8E4F12"/></linearGradient>
+<linearGradient id="blk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#262B33"/><stop offset="1" stop-color="#05070A"/></linearGradient>
+<linearGradient id="steel" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#18202A"/><stop offset=".45" stop-color="#2B3644"/><stop offset="1" stop-color="#141B24"/></linearGradient>
+<linearGradient id="goldG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E7BA5A"/><stop offset="1" stop-color="#B07A1F"/></linearGradient>
+<linearGradient id="flame" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#D2691E"/><stop offset=".5" stop-color="#F0A030"/><stop offset="1" stop-color="#FFE08A"/></linearGradient>
+<radialGradient id="hot" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFB347" stop-opacity=".55"/><stop offset="1" stop-color="#FFB347" stop-opacity="0"/></radialGradient>
+</defs>
+<style>
+.l{fill:none;stroke:#C6912F;stroke-width:4.50;stroke-linecap:round;stroke-linejoin:round}
+.lt{fill:none;stroke:#C6912F;stroke-width:2.40;stroke-opacity:.45;stroke-linecap:round;stroke-linejoin:round}
+.d{stroke-dasharray:12 11}
+.p{fill:#151D27;stroke:#C6912F;stroke-width:4.50;stroke-linecap:round;stroke-linejoin:round}
+.pm{fill:#111820;stroke:#34414F;stroke-width:3.00;stroke-linecap:round;stroke-linejoin:round}
+.m{fill:none;stroke:#34414F;stroke-width:3.00;stroke-linecap:round;stroke-linejoin:round}
+.g{fill:#C6912F}
+.gs{fill:#C6912F;fill-opacity:.14}
+</style>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<ellipse cx="700" cy="520" rx="800" ry="340" fill="url(#glow)"/>
+<g transform="translate(-96 -100) scale(1.12)"><circle cx="1170" cy="380" r="300" fill="url(#hot)"/><circle cx="1170" cy="380" r="120" fill="none" stroke="#C6912F" stroke-opacity=".7" stroke-width="4.50"/><circle cx="1170" cy="380" r="78" class="g" fill-opacity=".85"/><path class="lt" d="M180 250 H560 M300 300 H700 M120 350 H420 M760 200 H980"/><path d="M100 640 Q260 520 470 600 T820 590 T1100 620 L1100 700 L100 700 Z" fill="#101720" stroke="#34414F" stroke-width="3.00"/><path d="M700 650 Q960 560 1200 630 T1500 600 L1500 700 L700 700 Z" fill="#0D131A" stroke="#34414F" stroke-width="3.00"/><rect x="100" y="700" width="1400" height="46" fill="url(#blk)" stroke="#C6912F" stroke-width="4.50"/><rect x="100" y="746" width="1400" height="46" class="pm" style="fill:#18212C"/><rect x="100" y="792" width="1400" height="30" class="pm" style="fill:#0F151C"/><line x1="120" y1="718" x2="1480" y2="718" stroke="#E7BA5A" stroke-width="4.50" stroke-dasharray="44 36" stroke-opacity=".8"/><path class="p" d="M110 440 L290 440 L322 560 L170 560 Z"/><path class="l" d="M170 470 L270 470 M180 505 L284 505" style="stroke-width:3.60;opacity:.6"/><path class="p" d="M170 560 L170 650 L560 650 L560 590 L470 590 L440 530 L322 530 L322 560 Z" style="fill:url(#steel)"/><path class="l" d="M345 530 L345 440 M440 530 L440 440 M325 440 L460 440"/><rect x="560" y="580" width="100" height="116" class="p"/><rect x="660" y="660" width="210" height="40" fill="url(#blk)" stroke="#C6912F" stroke-width="4.50"/><rect x="200" y="650" width="340" height="56" rx="28" class="p"/><circle cx="232" cy="678" r="13" fill="#0B1016" stroke="#C6912F" stroke-width="4.50"/><circle cx="302" cy="678" r="13" fill="#0B1016" stroke="#C6912F" stroke-width="4.50"/><circle cx="372" cy="678" r="13" fill="#0B1016" stroke="#C6912F" stroke-width="4.50"/><circle cx="442" cy="678" r="13" fill="#0B1016" stroke="#C6912F" stroke-width="4.50"/><circle cx="512" cy="678" r="13" fill="#0B1016" stroke="#C6912F" stroke-width="4.50"/><path d="M690 656 c14 -32 -14 -58 0 -91 s14 -26 0 -39" fill="none" stroke="#E9D9B0" stroke-opacity="0.45" stroke-width="4.50" stroke-linecap="round" class="d" style="stroke-dasharray:none"/><path d="M742 656 c14 -32 -14 -58 0 -91 s14 -26 0 -39" fill="none" stroke="#E9D9B0" stroke-opacity="0.45" stroke-width="4.50" stroke-linecap="round" class="d" style="stroke-dasharray:none"/><path d="M794 656 c14 -32 -14 -58 0 -91 s14 -26 0 -39" fill="none" stroke="#E9D9B0" stroke-opacity="0.45" stroke-width="4.50" stroke-linecap="round" class="d" style="stroke-dasharray:none"/>
+<rect x="900" y="540" width="260" height="100" rx="12" class="p" style="fill:url(#steel)"/><path class="l" d="M960 540 L960 450 M1090 540 L1090 450 M940 450 L1110 450"/><rect x="985" y="480" width="70" height="60" rx="8" class="p"/><circle cx="965" cy="628" r="72" fill="#151D27" stroke="#C6912F" stroke-width="6.00"/><circle cx="965" cy="628" r="22" class="g"/><circle cx="1130" cy="634" r="66" fill="#151D27" stroke="#C6912F" stroke-width="6.00"/><circle cx="1130" cy="634" r="20" class="g"/><path d="M1328 700 L1350 640 L1372 700 Z" fill="#C6912F" fill-opacity=".85"/><line x1="1334" y1="682" x2="1366" y2="682" stroke="#0B1016" stroke-width="7.50"/><path d="M1398 700 L1420 640 L1442 700 Z" fill="#C6912F" fill-opacity=".85"/><line x1="1404" y1="682" x2="1436" y2="682" stroke="#0B1016" stroke-width="7.50"/></g><path class="lt" d="M34 70 L34 34 L70 34"/>
+<path class="lt" d="M1566 70 L1566 34 L1530 34"/>
+<path class="lt" d="M34 830 L34 866 L70 866"/>
+<path class="lt" d="M1566 830 L1566 866 L1530 866"/>
+<rect y="896" width="1600" height="4" fill="#C6912F" fill-opacity=".75"/>
+</svg>

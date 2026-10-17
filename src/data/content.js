@@ -126,7 +126,7 @@ export const aboutPage = {
   facility: {
     title: 'Our',
     titleAccent: 'Facility',
-    subtitle: 'State-of-the-art refining infrastructure coming soon',
+    subtitle: 'State of the art refining infrastructure coming soon',
     comingSoon: 'December 2026',
     specs: [
       { value: '5,000L', label: 'Batch Kettle Capacity' },
@@ -178,14 +178,14 @@ export const productsPage = {
         name: 'PREMIUM BASE OIL SN-150 EQUIVALENT',
         description:
           'Highly refined, straight-cut base oil engineered from premium automotive feedstocks using our advanced batch-wise distillation process. Providing excellent oxidation stability, this Group II equivalent is ideal for formulating high-performance engine oils, hydraulic fluids, and light industrial lubricants.',
-        specsPdf: '/docs/base-oil-sn150-specs.pdf',
+        specsPdf: '/specs/orion-oil-sn150-specs.pdf',
       },
       {
         id: 'sn300',
         name: 'PREMIUM BASE OIL SN-300 EQUIVALENT',
         description:
           'A heavier, superior quality Group I equivalent base oil offering exceptional film strength and thermal stability. Processed via deep-vacuum distillation with precision gas-fired thermic heating to ensure zero thermal cracking. Perfect for heavy-duty gear oils, metalworking fluids, and robust industrial applications.',
-        specsPdf: '/docs/base-oil-sn300-specs.pdf',
+        specsPdf: '/specs/orion-oil-sn300-specs.pdf',
       },
     ],
   },
@@ -198,7 +198,7 @@ export const productsPage = {
       name: 'INDUSTRIAL LDO (LIGHT DISTILLATE OIL)',
       description:
         'Captured during the initial dehydration phase of our batch-wise distillation process, this powerful, low-cost LDO alternative is derived from the highly combustible light ends of waste engine and industrial oils. Delivering a high calorific value, it provides maximum thermal efficiency for industrial furnaces, boilers, thermic fluid heaters, and heavy forging plants at an incredibly economical price point.',
-      specsPdf: '/docs/ldo-specs.pdf',
+      specsPdf: '/specs/orion-oil-industrial-ldo-specs.pdf',
     },
   },
   asphalt: {
@@ -210,7 +210,7 @@ export const productsPage = {
       name: 'ASPHALT MODIFIER / BITUMEN',
       description:
         'The heavy bottoms remaining after our deep-vacuum distillation process are discharged hot to create this dense, highly viscous bitumen product. By rescuing the heaviest hydrocarbon chains without thermal degradation, we produce an industrial binder with highly stable, excellent binding properties. It serves as a rugged foundation perfect for road construction (asphalt blending), roofing felts, waterproofing compounds, and heavy industrial coatings.',
-      specsPdf: '/docs/bitumen-specs.pdf',
+      specsPdf: '/specs/orion-oil-asphalt-bitumen-specs.pdf',
     },
   },
   dispatchOptions: [

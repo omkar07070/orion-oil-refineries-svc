@@ -1,16 +1,17 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import SafeImage from './SafeImage'
 
 /**
  * Product card — rounded-xl, image top, dark ink panel bottom, border treatment.
  * All 4 cards in the homepage grid are equal height; description scrolls when overflowing.
  * Specs PDF link + Request Quote button pinned to the bottom.
- * @param {{ product: object, onQuote?: () => void, imageSrc?: string }} props
+ * @param {{ product: object, onQuote?: () => void, imageSrc?: string, imageAlt?: string }} props
  */
-export default function ProductCard({ product, onQuote, imageSrc }) {
+export default function ProductCard({ product, onQuote, imageSrc, imageAlt }) {
   const descRef = useRef(null)
-  const [imgError, setImgError] = useState(false)
   const [isOverflowed, setIsOverflowed] = useState(false)
+  const [specsError, setSpecsError] = useState(false)
 
   useEffect(() => {
     const el = descRef.current
@@ -221,6 +222,19 @@ export default function ProductCard({ product, onQuote, imageSrc }) {
           line-height: 1.6;
           padding-right: 8px;
         }
+        /* Specs error message — small inline text with quote link */
+        .product-card .pc-specs-error {
+          font-size: 11px;
+          color: #9CA3AF;
+          line-height: 1.5;
+          margin: 0;
+          padding: 6px 0 0;
+        }
+        .product-card .pc-specs-error-link {
+          color: #C6912F;
+          text-decoration: underline;
+          text-underline-offset: 2px;
+        }
         /* Below 768px: show all text, no scroll, no fade */
         @media (max-width: 767px) {
           .product-card .pc-desc-wrap {
@@ -233,30 +247,19 @@ export default function ProductCard({ product, onQuote, imageSrc }) {
         }
       `}</style>
 
-      {/* Image area — placeholder gradient + icon when image fails or is absent */}
-      <div className="pc-img-wrap">
-        {imageSrc && !imgError ? (
-          <img
-            src={imageSrc}
-            alt={product.name}
-            loading="lazy"
-            onError={() => setImgError(true)}
-          />
-        ) : (
-          /* Dark gradient placeholder with oil-drop icon */
-          <div className="w-full h-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #12171C 0%, #1a2230 100%)' }}>
-            <svg className="w-12 h-12 text-gold opacity-30" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c-1.5 3-3 5-3 7.5a6 6 0 0012 0c0-2.5-1.5-4.5-3-7.5C16.5 4.5 15 6 12 6s-4.5-1.5-3-3z" />
-            </svg>
-          </div>
-        )}
-      </div>
+      {/* Image area — SafeImage shows a dark placeholder with gold droplet icon on error */}
+      <SafeImage
+        src={imageSrc}
+        alt={imageAlt || product.name}
+        className="pc-img-wrap"
+        loading="lazy"
+      />
 
       {/* Content */}
       <div className="p-5 md:p-6 flex flex-col flex-1 min-h-0">
         {/* Badge */}
         <span className="pc-badge">
-          {product.name.split(' ').slice(-2).join(' ')}
+          {product.name.replace(/\s*\([^)]*\)/g, '').replace(/\/\s*/g, ' ').trim().split(' ').slice(-2).join(' ')}
         </span>
 
         {/* Title — fixed 2-line min-height for alignment across all 4 cards */}
@@ -279,16 +282,46 @@ export default function ProductCard({ product, onQuote, imageSrc }) {
         {/* Buttons — pinned to card bottom with divider above */}
         <div className="pc-btn-group">
           {product.specsPdf && product.specsPdf !== '#' ? (
-            <a
-              href={product.specsPdf}
-              download
-              className="pc-btn-secondary"
-            >
-              <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-              </svg>
-              Download Specs
-            </a>
+            <>
+              <button
+                type="button"
+                className="pc-btn-secondary"
+                onClick={async () => {
+                  try {
+                    const res = await fetch(product.specsPdf)
+                    if (!res.ok || !res.headers.get('content-type')?.includes('application/pdf')) {
+                      setSpecsError(true)
+                      return
+                    }
+                    const blob = await res.blob()
+                    const url = URL.createObjectURL(blob)
+                    const a = document.createElement('a')
+                    a.href = url
+                    a.download = product.specsPdf.split('/').pop()
+                    document.body.appendChild(a)
+                    a.click()
+                    document.body.removeChild(a)
+                    URL.revokeObjectURL(url)
+                  } catch {
+                    setSpecsError(true)
+                  }
+                }}
+              >
+                <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                Download Specs
+              </button>
+              {specsError && (
+                <p className="pc-specs-error">
+                  Spec sheet is being updated.{' '}
+                  <a href="/contact" className="pc-specs-error-link">
+                    Request a quote
+                  </a>
+                  {' '}and we'll send it.
+                </p>
+              )}
+            </>
           ) : (
             <span className="pc-btn-secondary" style={{ borderColor: '#22282F', color: '#9CA3AF', cursor: 'not-allowed', opacity: 0.6 }}>
               <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">

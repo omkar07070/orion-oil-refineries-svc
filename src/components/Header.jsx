@@ -69,7 +69,6 @@ export default function Header() {
           <div className="flex items-center justify-between h-16 md:h-20 border-b border-ink-border">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <LogoMark />
               <span className="text-lg md:text-xl font-bold text-white tracking-wide">
                 ORION <span className="text-gold">OIL</span>
               </span>

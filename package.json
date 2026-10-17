@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:specs": "node scripts/generate-specs.js",
     "preview": "vite preview",
     "postinstall": "node scripts/patch-rollup.cjs"
   },
@@ -21,6 +22,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
+    "pdfkit": "^0.20.2",
     "playwright": "^1.64.0",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",

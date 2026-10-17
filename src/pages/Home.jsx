@@ -9,11 +9,23 @@ import QuoteModal from '../components/QuoteModal'
 import SectionHeader from '../components/SectionHeader'
 import Button from '../components/Button'
 import { homePage, productsPage } from '../data/content'
-import homeHeroImg from '../../images/home_page.jpg'
 
 export default function Home() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
   const [preselectedProduct, setPreselectedProduct] = useState('')
+
+  // Preload the above-the-fold hero image with high priority
+  useEffect(() => {
+    const link = document.createElement('link')
+    link.rel = 'preload'
+    link.as = 'image'
+    link.href = '/images/home_page.jpg'
+    link.fetchPriority = 'high'
+    document.head.appendChild(link)
+    return () => {
+      if (document.head.contains(link)) document.head.removeChild(link)
+    }
+  }, [])
 
   const openQuoteModal = (product = '') => {
     setPreselectedProduct(product)
@@ -21,10 +33,10 @@ export default function Home() {
   }
 
   const allProducts = [
-    { ...productsPage.baseOils.products[0], specsPdf: '/docs/base-oil-sn150-specs.pdf', image: '/images/products/base-oil-sn150.jpg' },
-    { ...productsPage.baseOils.products[1], specsPdf: '/docs/base-oil-sn300-specs.pdf', image: '/images/products/base-oil-sn300.jpg' },
-    { ...productsPage.industrialFuels.product, specsPdf: '/docs/ldo-specs.pdf', image: '/images/products/industrial-ldo.jpg' },
-    { ...productsPage.asphalt.product, specsPdf: '/docs/bitumen-specs.pdf', image: '/images/products/asphalt-bitumen.jpg' },
+    { ...productsPage.baseOils.products[0], specsPdf: '/specs/orion-oil-sn150-specs.pdf', image: '/images/products/orion-oil-products-sn150-base-oil.svg', imageAlt: 'Clear golden SN-150 equivalent base oil with short molecular chains and low viscosity' },
+    { ...productsPage.baseOils.products[1], specsPdf: '/specs/orion-oil-sn300-specs.pdf', image: '/images/products/orion-oil-products-sn300-base-oil.svg', imageAlt: 'Deep amber SN-300 equivalent base oil with long branched chains and high viscosity' },
+    { ...productsPage.industrialFuels.product, specsPdf: '/specs/orion-oil-industrial-ldo-specs.pdf', image: '/images/products/orion-oil-products-industrial-ldo.svg', imageAlt: 'Bulk storage tank supplying industrial LDO fuel to a boiler' },
+    { ...productsPage.asphalt.product, specsPdf: '/specs/orion-oil-asphalt-bitumen-specs.pdf', image: '/images/products/orion-oil-products-asphalt-bitumen.svg', imageAlt: 'Hot bitumen binder being poured into a road surface layer' },
   ]
 
   return (
@@ -34,7 +46,7 @@ export default function Home() {
         {/* Full-bleed hero image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${homeHeroImg})` }}
+          style={{ backgroundImage: `url('/images/home_page.jpg')` }}
           aria-hidden="true"
         />
         {/* Gradient overlay for contrast — preserves readability over dark refinery image */}
@@ -86,6 +98,7 @@ export default function Home() {
                 <ProductCard
                   product={product}
                   imageSrc={product.image}
+                  imageAlt={product.imageAlt}
                   onQuote={() => openQuoteModal(product.id)}
                 />
               </AnimateOnScroll>
@@ -95,10 +108,9 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-12 md:py-20 bg-ink">
+      <section id="why-choose" className="py-12 md:py-20 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            eyebrow="WHY ORION OIL"
             title="Why Choose"
             titleAccent="ORION OIL"
             subtitle="Three reasons leading Indian manufacturers trust Orion for their base oil supply"
@@ -116,7 +128,7 @@ export default function Home() {
               },
               {
                 title: 'Zero-Waste Process',
-                description: 'Every fraction of the feedstock is captured and repurposed — premium base oil, industrial LDO, and asphalt modifier.',
+                description: 'Every fraction of the feedstock is captured and repurposed — premium base oil, industrial LDO and asphalt modifier.',
               },
             ].map((item, i) => (
               <AnimateOnScroll key={item.title} delay={i * 0.1}>
@@ -149,10 +161,45 @@ export default function Home() {
 
       {/* Who We Are */}
       <section className="py-12 md:py-20 bg-ink">
+        <style>{`
+          @media (prefers-reduced-motion: reduce) {
+            .ww-panel-reveal {
+              transition: none !important;
+            }
+          }
+          @media (min-width: 1100px) {
+            .ww-grid {
+              display: grid;
+              grid-template-columns: 1.15fr 0.85fr;
+              gap: 60px;
+              align-items: center;
+            }
+          }
+          @media (max-width: 1099px) {
+            .ww-grid {
+              display: flex;
+              flex-direction: column;
+              gap: 0;
+            }
+            .ww-text {
+              max-width: 100%;
+            }
+            .ww-panel {
+              width: 100%;
+              max-width: 100%;
+            }
+          }
+          @media (max-width: 479px) {
+            .ww-stats-grid {
+              grid-template-columns: 1fr !important;
+            }
+          }
+        `}</style>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
+            <div className="ww-grid">
+              {/* Left: text content */}
+              <div className="ww-text">
                 <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-2 block">
                   Who We Are
                 </span>
@@ -166,6 +213,48 @@ export default function Home() {
                   Learn More About Us
                 </Button>
               </div>
+
+              {/* Right: "At a Glance" panel */}
+              <motion.div
+                className="ww-panel-reveal"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
+              >
+                <div className="ww-panel bg-ink-soft border border-ink-border rounded-2xl p-7 md:p-8 h-full">
+                  <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-5 block">
+                    At a Glance
+                  </span>
+
+                  <div className="ww-stats-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0' }}>
+                    {/* Top-left */}
+                    <div className="ww-stat-tile" style={{ padding: '20px 16px', borderRight: '1px solid #22282F', borderBottom: '1px solid #22282F' }}>
+                      <div style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.6rem)', fontWeight: 700, color: '#C6912F', fontFamily: 'Georgia, serif', lineHeight: 1.1, marginBottom: '6px' }}>Pune</div>
+                      <div style={{ fontSize: '0.7rem', color: '#9CA3AF', letterSpacing: '0.04em', lineHeight: 1.4 }}>MIDC Bhosari, Pune</div>
+                    </div>
+                    {/* Top-right */}
+                    <div className="ww-stat-tile" style={{ padding: '20px 16px', borderBottom: '1px solid #22282F' }}>
+                      <div style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.6rem)', fontWeight: 700, color: '#C6912F', fontFamily: 'Georgia, serif', lineHeight: 1.1, marginBottom: '6px' }}>100%</div>
+                      <div style={{ fontSize: '0.7rem', color: '#9CA3AF', letterSpacing: '0.04em', lineHeight: 1.4 }}>Recycled Feedstock</div>
+                    </div>
+                    {/* Bottom-left */}
+                    <div className="ww-stat-tile" style={{ padding: '20px 16px', borderRight: '1px solid #22282F' }}>
+                      <div style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.6rem)', fontWeight: 700, color: '#C6912F', fontFamily: 'Georgia, serif', lineHeight: 1.1, marginBottom: '6px' }}>Group II</div>
+                      <div style={{ fontSize: '0.7rem', color: '#9CA3AF', letterSpacing: '0.04em', lineHeight: 1.4 }}>Equivalent Base Oils</div>
+                    </div>
+                    {/* Bottom-right */}
+                    <div className="ww-stat-tile" style={{ padding: '20px 16px' }}>
+                      <div style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.6rem)', fontWeight: 700, color: '#C6912F', fontFamily: 'Georgia, serif', lineHeight: 1.1, marginBottom: '6px' }}>ASTM 1–2</div>
+                      <div style={{ fontSize: '0.7rem', color: '#9CA3AF', letterSpacing: '0.04em', lineHeight: 1.4 }}>Colour Grade</div>
+                    </div>
+                  </div>
+
+                  <p style={{ marginTop: '16px', paddingTop: '14px', borderTop: '1px solid rgba(34,40,47,0.8)', fontSize: '0.7rem', color: '#6B7280', letterSpacing: '0.03em' }}>
+                    Proudly refined in Pune, Maharashtra
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </AnimateOnScroll>
         </div>
@@ -419,7 +508,6 @@ export default function Home() {
           opacity: 1;
           transform: translateY(0);
         }
-
         /* Lead question — fade in */
         .js .news-section:not(.is-visible) .news-lead {
           transform: translateY(16px);
@@ -737,6 +825,17 @@ export default function Home() {
           .news-card-icon {
             transform: scale(1) !important;
             opacity: 1 !important;
+          }
+        }
+
+        /* ── Why Choose Us — clamp descriptions to 2 lines on desktop ── */
+        @media (min-width: 768px) {
+          #why-choose .bg-ink-soft p {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
           }
         }
       `}</style>

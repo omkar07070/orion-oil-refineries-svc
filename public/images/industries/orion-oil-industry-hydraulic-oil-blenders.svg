@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Hydraulic cylinder, pump and reservoir circuit">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141C27"/><stop offset="1" stop-color="#080B0F"/></linearGradient>
+<radialGradient id="glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#C6912F" stop-opacity=".30"/><stop offset="1" stop-color="#C6912F" stop-opacity="0"/></radialGradient>
+<pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.6" fill="#C6912F" fill-opacity=".15"/></pattern>
+<linearGradient id="oilL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6DC8A"/><stop offset="1" stop-color="#DDA93A"/></linearGradient>
+<linearGradient id="oilD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D58E2A"/><stop offset="1" stop-color="#8E4F12"/></linearGradient>
+<linearGradient id="blk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#262B33"/><stop offset="1" stop-color="#05070A"/></linearGradient>
+<linearGradient id="steel" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#18202A"/><stop offset=".45" stop-color="#2B3644"/><stop offset="1" stop-color="#141B24"/></linearGradient>
+<linearGradient id="goldG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E7BA5A"/><stop offset="1" stop-color="#B07A1F"/></linearGradient>
+<linearGradient id="flame" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#D2691E"/><stop offset=".5" stop-color="#F0A030"/><stop offset="1" stop-color="#FFE08A"/></linearGradient>
+<radialGradient id="hot" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFB347" stop-opacity=".55"/><stop offset="1" stop-color="#FFB347" stop-opacity="0"/></radialGradient>
+</defs>
+<style>
+.l{fill:none;stroke:#C6912F;stroke-width:4.50;stroke-linecap:round;stroke-linejoin:round}
+.lt{fill:none;stroke:#C6912F;stroke-width:2.40;stroke-opacity:.45;stroke-linecap:round;stroke-linejoin:round}
+.d{stroke-dasharray:12 11}
+.p{fill:#151D27;stroke:#C6912F;stroke-width:4.50;stroke-linecap:round;stroke-linejoin:round}
+.pm{fill:#111820;stroke:#34414F;stroke-width:3.00;stroke-linecap:round;stroke-linejoin:round}
+.m{fill:none;stroke:#34414F;stroke-width:3.00;stroke-linecap:round;stroke-linejoin:round}
+.g{fill:#C6912F}
+.gs{fill:#C6912F;fill-opacity:.14}
+</style>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<ellipse cx="840" cy="480" rx="780" ry="380" fill="url(#glow)"/>
+<line class="m" x1="100" y1="790" x2="1500" y2="790"/><line class="lt" x1="180" y1="804" x2="1420" y2="804"/>
+<rect x="120" y="340" width="230" height="300" rx="16" class="p" style="fill:url(#steel)"/><rect x="132" y="470" width="206" height="158" rx="10" fill="url(#oilL)" fill-opacity=".85"/><line x1="132" y1="470" x2="338" y2="470" stroke="#fff" stroke-opacity=".3" stroke-width="4.50"/><circle cx="470" cy="700" r="70" fill="#151D27" stroke="#C6912F" stroke-width="6.00"/><circle cx="470" cy="700" r="28" class="g"/><path class="l" style="stroke-width:3.60" d="M470 640 L470 760 M410 700 L530 700"/><path d="M350 580 C420 580 440 640 440 640" fill="none" stroke="#C6912F" stroke-width="30.00" stroke-linecap="butt" stroke-linejoin="round"/><path d="M350 580 C420 580 440 640 440 640" fill="none" stroke="#18212C" stroke-width="21.00" stroke-linecap="butt" stroke-linejoin="round"/>
+<rect x="560" y="400" width="520" height="190" rx="22" class="p" style="fill:url(#steel)"/><rect x="574" y="414" width="196" height="162" rx="12" fill="url(#oilL)" fill-opacity=".78"/><rect x="770" y="404" width="40" height="182" rx="8" fill="url(#goldG)" stroke="#C6912F" stroke-width="4.50"/><rect x="810" y="478" width="560" height="38" rx="8" fill="url(#steel)" stroke="#C6912F" stroke-width="4.50"/><rect x="1370" y="330" width="46" height="334" rx="10" class="p"/><path transform="translate(640 495) rotate(0) scale(1.4)" class="l" style="stroke-width:3.15" d="M-8 -12 L8 0 L-8 12"/>
+<path transform="translate(715 495) rotate(0) scale(1.4)" class="l" style="stroke-width:3.15" d="M-8 -12 L8 0 L-8 12"/>
+<path transform="translate(1300 497) rotate(0) scale(1.2)" class="l" style="stroke-width:3.75" d="M-8 -12 L8 0 L-8 12"/>
+<path d="M470 630 L470 340 Q470 300 510 300 L610 300 Q640 300 640 330 L640 400" fill="none" stroke="#C6912F" stroke-width="27.00" stroke-linecap="butt" stroke-linejoin="round"/><path d="M470 630 L470 340 Q470 300 510 300 L610 300 Q640 300 640 330 L640 400" fill="none" stroke="#18212C" stroke-width="18.00" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M1020 400 L1020 170 Q1020 150 1000 150 L320 150 Q300 150 300 170 L300 340" fill="none" stroke="#C6912F" stroke-width="27.00" stroke-linecap="butt" stroke-linejoin="round"/><path d="M1020 400 L1020 170 Q1020 150 1000 150 L320 150 Q300 150 300 170 L300 340" fill="none" stroke="#18212C" stroke-width="18.00" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M820 332 L820 400" fill="none" stroke="#C6912F" stroke-width="21.00" stroke-linecap="butt" stroke-linejoin="round"/><path d="M820 332 L820 400" fill="none" stroke="#18212C" stroke-width="12.00" stroke-linecap="butt" stroke-linejoin="round"/>
+<circle cx="820" cy="270" r="62" fill="#0B1016" stroke="#C6912F" stroke-width="6.00"/><line x1="780" y1="293" x2="772" y2="298" stroke="#C6912F" stroke-width="3.60"/><line x1="774" y1="270" x2="764" y2="270" stroke="#C6912F" stroke-width="3.60"/><line x1="780" y1="247" x2="772" y2="242" stroke="#C6912F" stroke-width="3.60"/><line x1="797" y1="230" x2="792" y2="222" stroke="#C6912F" stroke-width="3.60"/><line x1="820" y1="224" x2="820" y2="214" stroke="#C6912F" stroke-width="3.60"/><line x1="843" y1="230" x2="848" y2="222" stroke="#C6912F" stroke-width="3.60"/><line x1="860" y1="247" x2="868" y2="242" stroke="#C6912F" stroke-width="3.60"/><line x1="866" y1="270" x2="876" y2="270" stroke="#C6912F" stroke-width="3.60"/><line x1="860" y1="293" x2="868" y2="298" stroke="#C6912F" stroke-width="3.60"/><path d="M820 270 L856 234" stroke="#FFD27A" stroke-width="6.00" stroke-linecap="round"/><circle cx="820" cy="270" r="8" class="g"/><path class="lt" d="M34 70 L34 34 L70 34"/>
+<path class="lt" d="M1566 70 L1566 34 L1530 34"/>
+<path class="lt" d="M34 830 L34 866 L70 866"/>
+<path class="lt" d="M1566 830 L1566 866 L1530 866"/>
+<rect y="896" width="1600" height="4" fill="#C6912F" fill-opacity=".75"/>
+</svg>

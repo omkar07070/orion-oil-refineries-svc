@@ -5,9 +5,30 @@ import AnimateOnScroll from '../components/AnimateOnScroll'
 import QuoteModal from '../components/QuoteModal'
 import SectionHeader from '../components/SectionHeader'
 import ProductCard from '../components/ProductCard'
+import SafeImage from '../components/SafeImage'
 import { productsPage } from '../data/content'
 
-function ProductBlock({ product, reverse = false, index }) {
+// Product images — static paths matching the SVG diagrams in public/images/products/
+const PRODUCT_IMAGES = {
+  sn150: {
+    src: '/images/products/orion-oil-products-sn150-base-oil.svg',
+    alt: 'Clear golden SN-150 equivalent base oil with short molecular chains and low viscosity',
+  },
+  sn300: {
+    src: '/images/products/orion-oil-products-sn300-base-oil.svg',
+    alt: 'Deep amber SN-300 equivalent base oil with long branched chains and high viscosity',
+  },
+  ldo: {
+    src: '/images/products/orion-oil-products-industrial-ldo.svg',
+    alt: 'Bulk storage tank supplying industrial LDO fuel to a boiler',
+  },
+  bitumen: {
+    src: '/images/products/orion-oil-products-asphalt-bitumen.svg',
+    alt: 'Hot bitumen binder being poured into a road surface layer',
+  },
+}
+
+function ProductBlock({ product, reverse = false, index, imageSrc, imageAlt }) {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
 
   return (
@@ -20,9 +41,13 @@ function ProductBlock({ product, reverse = false, index }) {
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Image */}
           <div className={`bg-ink flex items-center justify-center h-56 lg:h-auto border-b lg:border-b-0 ${reverse ? 'lg:order-2' : ''} ${reverse ? 'lg:border-l' : ''} border-ink-border`}>
-            <svg className="w-14 h-14 text-gold" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-            </svg>
+            <SafeImage
+              src={imageSrc}
+              alt={imageAlt || product.name}
+              className="w-full"
+              style={{ height: '224px' }}
+              loading="lazy"
+            />
           </div>
 
           {/* Content */}
@@ -90,8 +115,10 @@ export default function Products() {
             {productsPage.baseOils.products.map((product, i) => (
               <ProductBlock
                 key={product.id}
-                product={{ ...product, specsPdf: i === 0 ? '/docs/base-oil-sn150-specs.pdf' : '/docs/base-oil-sn300-specs.pdf' }}
+                product={{ ...product, specsPdf: i === 0 ? '/specs/orion-oil-sn150-specs.pdf' : '/specs/orion-oil-sn300-specs.pdf' }}
                 index={i}
+                imageSrc={i === 0 ? PRODUCT_IMAGES.sn150.src : PRODUCT_IMAGES.sn300.src}
+                imageAlt={i === 0 ? PRODUCT_IMAGES.sn150.alt : PRODUCT_IMAGES.sn300.alt}
               />
             ))}
           </div>
@@ -108,8 +135,10 @@ export default function Products() {
             subtitle={productsPage.industrialFuels.subtitle}
           />
           <ProductBlock
-            product={{ ...productsPage.industrialFuels.product, specsPdf: '/docs/ldo-specs.pdf' }}
+            product={{ ...productsPage.industrialFuels.product, specsPdf: '/specs/orion-oil-industrial-ldo-specs.pdf' }}
             index={0}
+            imageSrc={PRODUCT_IMAGES.ldo.src}
+            imageAlt={PRODUCT_IMAGES.ldo.alt}
           />
         </div>
       </section>
@@ -125,9 +154,11 @@ export default function Products() {
             subtitle={productsPage.asphalt.subtitle}
           />
           <ProductBlock
-            product={{ ...productsPage.asphalt.product, specsPdf: '/docs/bitumen-specs.pdf' }}
+            product={{ ...productsPage.asphalt.product, specsPdf: '/specs/orion-oil-asphalt-bitumen-specs.pdf' }}
             reverse
             index={0}
+            imageSrc={PRODUCT_IMAGES.bitumen.src}
+            imageAlt={PRODUCT_IMAGES.bitumen.alt}
           />
         </div>
       </section>

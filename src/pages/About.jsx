@@ -5,7 +5,8 @@ import FeatureCard from '../components/FeatureCard'
 import QuoteModal from '../components/QuoteModal'
 import SectionHeader from '../components/SectionHeader'
 import { aboutPage } from '../data/content'
-import refineryImg from '../../images/orion_oil1.png.avif'
+// About page hero image — served from public/images/
+const REFINERY_IMAGE = '/images/orion_oil1.png.avif'
 
 function AboutBlock({ title, subtitle, content, reverse = false, eyebrow, imageSrc, iconLabel }) {
   return (
@@ -71,7 +72,7 @@ export default function About() {
             eyebrow="WHO WE ARE"
             title={aboutPage.whoWeAre.title}
             content={aboutPage.whoWeAre.content}
-            imageSrc={refineryImg}
+            imageSrc={REFINERY_IMAGE}
           />
         </div>
       </section>
@@ -109,7 +110,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="OUR FACILITY"
-            title="State-of-the-Art"
+            title="State of the Art"
             titleAccent="Refining Infrastructure"
             subtitle={aboutPage.facility.subtitle}
           />

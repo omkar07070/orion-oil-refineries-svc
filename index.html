@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {/* Tiny JS-detection: adds "js" class to <html> so CSS can scope hidden states to JS-only */}
     <script>document.documentElement.classList.add('js')</script>
+    <style>
+      html,body{background:#0B0F14;color:#E8E6E1;margin:0}
+      .skip-link{position:absolute;left:-9999px;top:0;display:none}
+      .skip-link:focus{left:16px;top:16px;z-index:10000;background:#C6912F;color:#0B0F14;padding:10px 16px;border-radius:6px;text-decoration:none;font-weight:600;display:block}
+    </style>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TODO: Replace https://yourdomain.com with your actual domain before launch -->
     <meta name="description" content="Orion Oil — Premium base oils and industrial fuels refined from 100% recycled feedstocks in Pune, Maharashtra. Group II equivalent quality. Zero-waste circular economy. EPR compliant." />
     <meta name="keywords" content="base oil, recycled base oil, SN-150, SN-300, industrial fuels, LDO, bitumen, asphalt modifier, lubricant manufacturers, circular economy, Pune, India" />
     <title>Orion Oil | Engineering the Future of Sustainable Lubricants</title>
 
-    {/* Open Graph / Social */}
+    <!-- Open Graph / Social — replace https://yourdomain.com with your actual domain -->
+    <link rel="canonical" href="https://yourdomain.com" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Orion Oil | Premium Base Oils & Industrial Fuels" />
+    <meta property="og:title" content="Orion Oil | Engineering the Future of Sustainable Lubricants" />
     <meta property="og:description" content="Premium base oils and industrial fuels refined from 100% recycled feedstocks. 100% domestic — no import dependency. EPR compliant." />
-    <meta property="og:url" content="https://orionoils.com" />
-    <meta property="og:image" content="/images/og-image.jpg" />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <meta property="og:image" content="https://yourdomain.com/images/orion-oil-og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Orion Oil - Engineering the Future of Sustainable Lubricants" />
 
-    {/* Schema.org Organization */}
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://yourdomain.com/images/orion-oil-og-image.jpg" />
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#0B0F14" />
+
+    <!-- Schema.org Organization -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Orion Oil and Gas",
-        "url": "https://orionoils.com",
-        "logo": "https://orionoils.com/favicon.svg",
+        "url": "https://yourdomain.com",
+        "logo": "https://yourdomain.com/favicon.svg",
         "description": "Premium base oils and industrial fuels refined from 100% recycled feedstocks in MIDC Bhosari, Pune, Maharashtra, India.",
         "address": {
           "@type": "PostalAddress",

@@ -4,8 +4,9 @@ import AnimateOnScroll from '../components/AnimateOnScroll'
 import AnimatedCounter from '../components/AnimatedCounter'
 import SectionHeader from '../components/SectionHeader'
 import { technologyPage } from '../data/content'
-import preTreatementAvif from '../../images/preTreatement.avif'
-import preTreateJpeg from '../../images/preTreate.jpeg'
+// Process imagery — served from public/images/
+const PRETREATEMENT_AVIF = '/images/preTreatement.avif'
+const PRETREATE_JPEG = '/images/preTreate.jpeg'
 
 /**
  * Single process step in the vertical timeline.
@@ -39,9 +40,9 @@ function TimelineStep({ step, index, showImage = false }) {
         {showImage && (
           <div className="rounded-xl overflow-hidden max-w-xl aspect-[16/9]">
             <picture>
-              <source srcSet={preTreatementAvif} type="image/avif" />
+              <source srcSet={PRETREATEMENT_AVIF} type="image/avif" />
               <img
-                src={preTreateJpeg}
+                src={PRETREATE_JPEG}
                 alt={`Step ${step.number}: ${step.title} at Orion Oil refinery`}
                 className="w-full h-full object-cover"
                 loading="lazy"

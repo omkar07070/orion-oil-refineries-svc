@@ -103,12 +103,13 @@ export default function Quality() {
             title="Key"
             titleAccent="Test Parameters"
             subtitle="International ASTM Standard Compliance"
+            className="text-center"
           />
 
           <AnimateOnScroll>
             {/* Desktop: table layout */}
-            <div className="hidden md:block bg-ink border border-ink-border rounded-xl overflow-hidden">
-              <table className="w-full">
+            <div className="hidden md:block bg-ink border border-ink-border rounded-xl overflow-x-auto">
+              <table className="w-full min-w-[500px]">
                 <thead>
                   <tr className="border-b border-ink-border">
                     <th className="px-6 py-4 text-left text-xs font-semibold text-gold uppercase tracking-wider">Property Measured</th>
