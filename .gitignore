@@ -36,3 +36,9 @@ Thumbs.db
 
 # Testing
 coverage/
+
+# Claude Code memory / session state
+.claude/
+
+# Playwright test results
+test-results/
