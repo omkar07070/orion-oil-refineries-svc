@@ -1,10 +1,9 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import IndustryCard from '../components/IndustryCard'
-import QuoteModal from '../components/QuoteModal'
 import SectionHeader from '../components/SectionHeader'
 import { industriesPage } from '../data/content'
+import { PATHS, TOPIC_QUOTE, contactHref } from '../routes/paths'
 
 // Image map: industry index → image path (matching actual files in public/images/industries/)
 const industryImages = [
@@ -20,8 +19,6 @@ const industryImages = [
 ]
 
 export default function Industries() {
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
-
   return (
     <>
       <PageHeader
@@ -54,14 +51,14 @@ export default function Industries() {
           <h2 className="text-3xl font-bold text-white mb-5">{industriesPage.cta.title}</h2>
           <p className="text-slate mb-10 max-w-2xl mx-auto">{industriesPage.cta.description}</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button
-              onClick={() => setIsQuoteModalOpen(true)}
+            <Link
+              to={contactHref({ topic: TOPIC_QUOTE })}
               className="inline-flex items-center px-6 py-3 bg-gold text-white font-semibold rounded-full transition-all duration-200 hover:bg-gold-light min-h-[48px]"
             >
               Request for Quote
-            </button>
+            </Link>
             <Link
-              to="/contact"
+              to={PATHS.CONTACT}
               className="inline-flex items-center px-6 py-3 border-2 border-white/30 text-white font-semibold rounded-lg transition-all duration-200 hover:border-gold hover:text-gold min-h-[48px]"
             >
               Contact Us
@@ -69,11 +66,6 @@ export default function Industries() {
           </div>
         </div>
       </section>
-
-      <QuoteModal
-        isOpen={isQuoteModalOpen}
-        onClose={() => setIsQuoteModalOpen(false)}
-      />
     </>
   )
 }

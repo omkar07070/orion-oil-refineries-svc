@@ -1,14 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import SafeImage from './SafeImage'
+import { quoteHref } from '../routes/paths'
 
 /**
  * Product card — rounded-xl, image top, dark ink panel bottom, border treatment.
  * All 4 cards in the homepage grid are equal height; description scrolls when overflowing.
  * Specs PDF link + Request Quote button pinned to the bottom.
- * @param {{ product: object, onQuote?: () => void, imageSrc?: string, imageAlt?: string }} props
+ * @param {{ product: object, imageSrc?: string, imageAlt?: string }} props
  */
-export default function ProductCard({ product, onQuote, imageSrc, imageAlt }) {
+export default function ProductCard({ product, imageSrc, imageAlt }) {
   const descRef = useRef(null)
   const [isOverflowed, setIsOverflowed] = useState(false)
   const [specsError, setSpecsError] = useState(false)
@@ -315,9 +317,9 @@ export default function ProductCard({ product, onQuote, imageSrc, imageAlt }) {
               {specsError && (
                 <p className="pc-specs-error">
                   Spec sheet is being updated.{' '}
-                  <a href="/contact" className="pc-specs-error-link">
+                  <Link to={quoteHref(product.id)} className="pc-specs-error-link">
                     Request a quote
-                  </a>
+                  </Link>
                   {' '}and we'll send it.
                 </p>
               )}
@@ -330,13 +332,12 @@ export default function ProductCard({ product, onQuote, imageSrc, imageAlt }) {
               Specs Coming Soon
             </span>
           )}
-          <button
-            type="button"
-            onClick={onQuote}
+          <Link
+            to={quoteHref(product.id)}
             className="pc-btn-primary"
           >
             Request Quote
-          </button>
+          </Link>
         </div>
       </div>
     </motion.div>

@@ -57,7 +57,7 @@ const PRODUCTS = [
   {
     filename: 'orion-oil-sn150-specs.pdf',
     name: 'PREMIUM BASE OIL SN-150 EQUIVALENT',
-    subtitle: 'Group II Equivalent Base Oil',
+    subtitle: 'Group I Equivalent Base Oil',
     description:
       'Highly refined, straight-cut base oil engineered from premium automotive feedstocks using an advanced batch-wise distillation process. Provides excellent oxidation stability and is ideal for formulating high-performance engine oils, hydraulic fluids, and light industrial lubricants.',
     applications: ['Engine oils', 'Hydraulic fluids', 'Light industrial lubricants', 'Metalworking fluids'],
@@ -66,7 +66,7 @@ const PRODUCTS = [
   {
     filename: 'orion-oil-sn300-specs.pdf',
     name: 'PREMIUM BASE OIL SN-300 EQUIVALENT',
-    subtitle: 'Group I / II Equivalent Base Oil',
+    subtitle: 'Group I Equivalent Base Oil',
     description:
       'A heavier, superior quality base oil offering exceptional film strength and thermal stability. Processed via deep-vacuum distillation with precision gas-fired thermic heating to ensure zero thermal cracking. Perfect for heavy-duty gear oils, metalworking fluids, and robust industrial applications.',
     applications: ['Heavy-duty gear oils', 'Industrial gear lubricants', 'Metalworking fluids', 'Heavy industrial applications'],

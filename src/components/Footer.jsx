@@ -1,11 +1,43 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import ContactInfoModal from './ContactInfoModal'
 import { footer, WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '../data/content'
+import { PATHS, TOPIC_QUOTE, contactHref } from '../routes/paths'
+
+/**
+ * The site sets `html { scroll-behavior: smooth }` globally, which would animate a
+ * scrollTo(0, 0). Suspend it for the frame so route changes land at the top instantly.
+ */
+function scrollToTopInstant() {
+  const root = document.documentElement
+  const previous = root.style.scrollBehavior
+  root.style.scrollBehavior = 'auto'
+  window.scrollTo(0, 0)
+  root.style.scrollBehavior = previous
+}
 
 export default function Footer() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
+  const location = useLocation()
+  const scrollModeRef = useRef(null)
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
+
+  const handleBrandClick = () => {
+    scrollModeRef.current = location.pathname === '/' ? 'smooth' : 'instant'
+  }
+
+  // location.key changes on every navigation, including a Link to the current route
+  useEffect(() => {
+    const mode = scrollModeRef.current
+    if (!mode) return
+    scrollModeRef.current = null
+
+    if (mode === 'smooth' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      scrollToTopInstant()
+    }
+  }, [location.key])
 
   return (
     <footer className="bg-ink border-t border-ink-border text-white">
@@ -13,17 +45,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-full bg-ink-soft border border-ink-border flex items-center justify-center flex-shrink-0">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-gold">
-                  <path d="M12 2C10.5 5 7 7 7 11C7 14 9.5 16 12 16C14.5 16 17 14 17 11C17 7 13.5 5 12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                </svg>
-              </div>
-              <span className="text-xl font-bold text-white tracking-wide">
-                ORION <span className="text-gold">OIL</span>
-              </span>
+            <Link
+              to={PATHS.HOME}
+              onClick={handleBrandClick}
+              aria-label="Orion Oil, go to homepage"
+              className="inline-block rounded-[4px] text-[26px] font-bold tracking-wide text-white no-underline cursor-pointer transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-[3px] focus-visible:ring-offset-ink"
+            >
+              ORION{' '}
+              <span className="text-gold transition-colors duration-150 hover:text-gold-light">OIL</span>
             </Link>
-            <p className="text-slate text-sm leading-relaxed max-w-xs">
+            <p className="text-slate text-sm leading-relaxed max-w-xs mt-4">
               {footer.brand}
             </p>
           </div>
@@ -58,7 +89,7 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <Link to="/contact" className="text-slate text-sm hover:text-gold transition-colors duration-200">
+                <Link to={contactHref({ topic: TOPIC_QUOTE })} className="text-slate text-sm hover:text-gold transition-colors duration-200">
                   Request for Bulk Quote
                 </Link>
               </li>

@@ -1,14 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../components/PageHeader'
 import AnimateOnScroll from '../components/AnimateOnScroll'
 import QuoteModal from '../components/QuoteModal'
 import SectionHeader from '../components/SectionHeader'
 import { contactPage, WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '../data/content'
+import { PRODUCT_REQUIREMENTS, QUERY } from '../routes/paths'
 
 export default function Contact() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
+  const [searchParams] = useSearchParams()
+  const productParam = searchParams.get(QUERY.PRODUCT)
+  const preselectedRequirement = PRODUCT_REQUIREMENTS[productParam] || ''
+  const [requirement, setRequirement] = useState(preselectedRequirement)
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
+
+  // Re-select the product when the URL changes (e.g. another quote link)
+  useEffect(() => {
+    setRequirement(preselectedRequirement)
+  }, [preselectedRequirement])
 
   return (
     <>
@@ -135,7 +146,7 @@ export default function Contact() {
 
                   <div className="mb-4">
                     <label htmlFor="contact-requirement" className="block text-sm font-medium text-white mb-1.5">Requirement *</label>
-                    <select id="contact-requirement" required className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors">
+                    <select id="contact-requirement" required value={requirement} onChange={(e) => setRequirement(e.target.value)} className="w-full px-4 py-2.5 bg-paper border border-ink-border rounded-lg text-sm text-ink focus:outline-none focus:border-gold transition-colors">
                       <option value="">Select a product</option>
                       <option value="Base Oil SN150">Base Oil SN-150</option>
                       <option value="Base Oil SN300">Base Oil SN-300</option>
@@ -202,6 +213,7 @@ export default function Contact() {
       <QuoteModal
         isOpen={isQuoteModalOpen}
         onClose={() => setIsQuoteModalOpen(false)}
+        preselectedProduct={requirement}
       />
     </>
   )

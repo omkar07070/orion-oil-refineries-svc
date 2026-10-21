@@ -3,6 +3,7 @@
  * All hardcoded text, contact info, navigation, and configuration lives here.
  * Edit this file to update site copy, contact details, WhatsApp number, etc.
  */
+import { PATHS } from '../routes/paths'
 
 /** @type {string} WhatsApp number in international format (no spaces or dashes) */
 export const WHATSAPP_NUMBER = '918275635579'
@@ -31,13 +32,13 @@ export const contact = {
 }
 
 export const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Products', href: '/products' },
-  { label: 'Technology', href: '/technology' },
-  { label: 'Quality', href: '/quality' },
-  { label: 'Industries', href: '/industries' },
-  { label: 'Contact Us', href: '/contact' },
+  { label: 'Home', href: PATHS.HOME },
+  { label: 'About Us', href: PATHS.ABOUT },
+  { label: 'Products', href: PATHS.PRODUCTS },
+  { label: 'Technology', href: PATHS.TECHNOLOGY },
+  { label: 'Quality', href: PATHS.QUALITY },
+  { label: 'Industries', href: PATHS.INDUSTRIES },
+  { label: 'Contact Us', href: PATHS.CONTACT },
 ]
 
 export const homePage = {
@@ -102,7 +103,7 @@ export const aboutPage = {
     content: [
       'Based in MIDC Bhosari, Pune, Orion Oil is fundamentally transforming how the industrial sector approaches resource recovery. We do not just recycle; we meticulously re-engineer.',
       'Utilizing our advanced, high-vacuum continuous batch distillation process, we rescue the heaviest hydrocarbon chains from waste engine and industrial oils, preventing them from becoming environmental hazards.',
-      'Powered by a highly efficient gas-fired thermic fluid heating system, we process these materials with absolute precision. This ensures zero thermal degradation, restoring the oil to a virgin-like state to deliver uncompromising, premium-grade base oils and industrial fuels.',
+      'Powered by a highly efficient gas-fired thermic fluid heating system, we process these materials with absolute precision. This ensures zero thermal degradation, restoring the oil to a consistent, high-purity re-refined state to deliver uncompromising, premium-grade base oils and industrial fuels.',
     ],
   },
   mission: {
@@ -126,7 +127,7 @@ export const aboutPage = {
   facility: {
     title: 'Our',
     titleAccent: 'Facility',
-    subtitle: 'State of the art refining infrastructure coming soon',
+    subtitle: 'Coming soon',
     comingSoon: 'December 2026',
     specs: [
       { value: '5,000L', label: 'Batch Kettle Capacity' },
@@ -141,7 +142,7 @@ export const aboutPage = {
     },
     {
       title: 'Premium Quality',
-      description: 'Virgin-like molecular integrity achieved through advanced deep-vacuum batch distillation. ASTM color 1-2.',
+      description: 'Consistent, high-purity re-refined molecular integrity achieved through advanced deep-vacuum batch distillation. ASTM color 1-2.',
     },
     {
       title: 'Zero-Waste Process',
@@ -171,13 +172,13 @@ export const productsPage = {
   baseOils: {
     title: 'Base',
     titleAccent: 'Oils',
-    subtitle: 'Premium Group II equivalent base oils with virgin-like performance characteristics',
+    subtitle: 'Premium Group I equivalent base oils with consistent, high-purity re-refined performance characteristics',
     products: [
       {
         id: 'sn150',
         name: 'PREMIUM BASE OIL SN-150 EQUIVALENT',
         description:
-          'Highly refined, straight-cut base oil engineered from premium automotive feedstocks using our advanced batch-wise distillation process. Providing excellent oxidation stability, this Group II equivalent is ideal for formulating high-performance engine oils, hydraulic fluids, and light industrial lubricants.',
+          'Highly refined, straight-cut base oil engineered from premium automotive feedstocks using our advanced batch-wise distillation process. Providing excellent oxidation stability, this Group I equivalent is ideal for formulating high-performance engine oils, hydraulic fluids, and light industrial lubricants.',
         specsPdf: '/specs/orion-oil-sn150-specs.pdf',
       },
       {
@@ -241,7 +242,7 @@ export const technologyPage = {
     subtitle: 'Precision Engineering for Zero-Degradation Refining',
     intro: [
       'Traditional continuous-flow recycling systems often compromise the molecular integrity of the oil through extreme heat and thermal cracking. At Orion Oil, we have rejected the standard approach. Our facility utilizes a highly specialized, custom-engineered batch-wise distillation architecture designed exclusively for the complex processing of waste engine and industrial oils.',
-      'By operating under extreme deep-vacuum conditions and utilizing a highly calibrated gas-fired thermal system, we achieve a level of fractional precision that ensures every drop of recovered base oil retains its virgin-like performance characteristics.',
+      'By operating under extreme deep-vacuum conditions and utilizing a highly calibrated gas-fired thermal system, we achieve a level of fractional precision that ensures every drop of recovered base oil retains its consistent, high-purity re-refined performance characteristics.',
     ],
     pillars: [
       {
@@ -291,7 +292,7 @@ export const technologyPage = {
       },
     ],
     result:
-      'Our advanced vacuum distillation technology guarantees that the base oil we recover is structurally identical to virgin feedstocks. For lubricant blenders and industrial manufacturers, this means access to a highly refined, naturally high-viscosity product with exceptional oxidation stability—all while actively supporting a closed-loop, zero-waste circular economy.',
+      'Our advanced vacuum distillation technology guarantees that the base oil we recover retains the characteristic molecular structure of the original feedstock. For lubricant blenders and industrial manufacturers, this means access to a highly refined, naturally high-viscosity product with exceptional oxidation stability—all while actively supporting a closed-loop, zero-waste circular economy.',
   },
   refiningProcess: {
     title: 'Our',
@@ -312,7 +313,7 @@ export const technologyPage = {
       },
       {
         number: 3,
-        title: 'Chemical Polishing',
+        title: 'Specialized 24 Column OPU',
         description:
           'Distillation is followed by a rigorous, continuous purification phase utilizing our specialized oil polishing skid, engineered to process 4.8 Tons every 24 hours. The distilled oil undergoes forced percolation through a 20-column matrix loaded with a specialized, highly reactive Alumina Bauxite blend. This advanced percolation neutralizes total acid numbers (TAN), extracts microscopic sludge, and dramatically restores the oil\'s visual clarity, achieving an ASTM color rating of ~3 in just a single pass.',
       },
@@ -326,7 +327,7 @@ export const technologyPage = {
         number: 5,
         title: 'Premium Base Oil & By-Products',
         description:
-          'Our batch-wise architecture is a true closed-loop, zero-waste system. The primary yield is our flagship Premium Base Oil (SN-150 and SN-300 equivalents), restored to a virgin-like state. Simultaneously, we capture 100% of the by-products for industrial use: the light ends are condensed into our high-energy Industrial LDO, while the remaining 720 kg of heavy, uncracked residue is safely discharged from the kettle to serve as a high-viscosity Asphalt Modifier for road and infrastructure applications.',
+          'Our batch-wise architecture is a true closed-loop, zero-waste system. The primary yield is our flagship Premium Base Oil (SN-150 and SN-300 equivalents), restored to a consistent, high-purity re-refined state. Simultaneously, we capture 100% of the by-products for industrial use: the light ends are condensed into our high-energy Industrial LDO, while the remaining 720 kg of heavy, uncracked residue is safely discharged from the kettle to serve as a high-viscosity Asphalt Modifier for road and infrastructure applications.',
       },
     ],
   },
@@ -546,12 +547,12 @@ export const quoteForm = {
 export const footer = {
   brand: 'Engineering the future of sustainable lubricants. Premium base oils and industrial fuels, proudly refined in Pune, Maharashtra.',
   quickLinks: [
-    { label: 'About Us', href: '/about' },
-    { label: 'Products', href: '/products' },
-    { label: 'Technology', href: '/technology' },
-    { label: 'Quality', href: '/quality' },
-    { label: 'Industries', href: '/industries' },
-    { label: 'Contact Us', href: '/contact' },
+    { label: 'About Us', href: PATHS.ABOUT },
+    { label: 'Products', href: PATHS.PRODUCTS },
+    { label: 'Technology', href: PATHS.TECHNOLOGY },
+    { label: 'Quality', href: PATHS.QUALITY },
+    { label: 'Industries', href: PATHS.INDUSTRIES },
+    { label: 'Contact Us', href: PATHS.CONTACT },
   ],
   getInTouch: [
     { label: 'Contact Sales', action: 'contact' },

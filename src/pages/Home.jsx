@@ -1,19 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import AnimateOnScroll from '../components/AnimateOnScroll'
 import AnimatedCounter from '../components/AnimatedCounter'
 import FeatureCard from '../components/FeatureCard'
 import ProductCard from '../components/ProductCard'
-import QuoteModal from '../components/QuoteModal'
 import SectionHeader from '../components/SectionHeader'
 import Button from '../components/Button'
 import { homePage, productsPage } from '../data/content'
+import { PATHS, TOPIC_QUOTE, contactHref } from '../routes/paths'
 
 export default function Home() {
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
-  const [preselectedProduct, setPreselectedProduct] = useState('')
-
   // Preload the above-the-fold hero image with high priority
   useEffect(() => {
     const link = document.createElement('link')
@@ -26,11 +23,6 @@ export default function Home() {
       if (document.head.contains(link)) document.head.removeChild(link)
     }
   }, [])
-
-  const openQuoteModal = (product = '') => {
-    setPreselectedProduct(product)
-    setIsQuoteModalOpen(true)
-  }
 
   const allProducts = [
     { ...productsPage.baseOils.products[0], specsPdf: '/specs/orion-oil-sn150-specs.pdf', image: '/images/products/orion-oil-products-sn150-base-oil.svg', imageAlt: 'Clear golden SN-150 equivalent base oil with short molecular chains and low viscosity' },
@@ -68,11 +60,11 @@ export default function Home() {
               {homePage.hero.subheadline}
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="primary" onClick={() => openQuoteModal()}>
+              <Button variant="primary" to={contactHref({ topic: TOPIC_QUOTE })}>
                 Request for Quote
               </Button>
               <Link
-                to="/products"
+                to={PATHS.PRODUCTS}
                 className="inline-flex items-center px-6 py-2.5 border-2 border-white/30 text-white text-sm font-semibold rounded-lg transition-all duration-200 hover:border-gold hover:text-gold min-h-[44px]"
               >
                 Explore Products
@@ -99,7 +91,6 @@ export default function Home() {
                   product={product}
                   imageSrc={product.image}
                   imageAlt={product.imageAlt}
-                  onQuote={() => openQuoteModal(product.id)}
                 />
               </AnimateOnScroll>
             ))}
@@ -123,8 +114,8 @@ export default function Home() {
                 description: 'Proudly refined in Pune, Maharashtra. No import dependencies, no currency fluctuations, no supply chain uncertainties.',
               },
               {
-                title: 'Virgin-Like Quality',
-                description: 'Deep-vacuum batch distillation preserves molecular integrity. Group II equivalent performance — ASTM color 1–2.',
+                title: 'Consistent Re-Refined Quality',
+                description: 'Deep-vacuum batch distillation. Consistent Group I equivalent — ASTM color 1–2.',
               },
               {
                 title: 'Zero-Waste Process',
@@ -209,7 +200,7 @@ export default function Home() {
                 </h2>
                 <p className="text-slate mb-4 leading-relaxed">{homePage.whoWeAre.description}</p>
                 <p className="text-slate mb-8 leading-relaxed">{homePage.whoWeAre.description2}</p>
-                <Button variant="secondary" href="/about">
+                <Button variant="secondary" to={PATHS.ABOUT}>
                   Learn More About Us
                 </Button>
               </div>
@@ -240,7 +231,7 @@ export default function Home() {
                     </div>
                     {/* Bottom-left */}
                     <div className="ww-stat-tile" style={{ padding: '20px 16px', borderRight: '1px solid #22282F' }}>
-                      <div style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.6rem)', fontWeight: 700, color: '#C6912F', fontFamily: 'Georgia, serif', lineHeight: 1.1, marginBottom: '6px' }}>Group II</div>
+                      <div style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.6rem)', fontWeight: 700, color: '#C6912F', fontFamily: 'Georgia, serif', lineHeight: 1.1, marginBottom: '6px' }}>Group I</div>
                       <div style={{ fontSize: '0.7rem', color: '#9CA3AF', letterSpacing: '0.04em', lineHeight: 1.4 }}>Equivalent Base Oils</div>
                     </div>
                     {/* Bottom-right */}
@@ -401,18 +392,18 @@ export default function Home() {
           {/* ── Share your experience line ──────────────────────────── */}
           <p className="news-share mb-6">
             Working with recycled base oils? Tell us what you're seeing in your market.{' '}
-            <Link to="/contact" className="text-gold hover:text-gold-light underline underline-offset-2 transition-colors duration-200">
+            <Link to={PATHS.CONTACT} className="text-gold hover:text-gold-light underline underline-offset-2 transition-colors duration-200">
               Contact Us
             </Link>
           </p>
 
           {/* ── CTA row ────────────────────────────────────────────── */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="primary" onClick={() => openQuoteModal()}>
+            <Button variant="primary" to={contactHref({ topic: TOPIC_QUOTE })}>
               Request a Quote
             </Button>
             <Link
-              to="/contact"
+              to={PATHS.CONTACT}
               className="inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-2.5 border-2 border-gold text-gold text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-gold hover:text-ink-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
               Talk to Our Team
@@ -846,12 +837,6 @@ export default function Home() {
         Runs once; IntersectionObserver disconnects itself after first trigger.
       */}
       <EffectInsightReveal />
-
-      <QuoteModal
-        isOpen={isQuoteModalOpen}
-        onClose={() => setIsQuoteModalOpen(false)}
-        preselectedProduct={preselectedProduct}
-      />
     </>
   )
 }

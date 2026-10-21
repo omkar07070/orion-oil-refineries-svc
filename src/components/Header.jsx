@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { navLinks, WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '../data/content'
+import { PATHS, TOPIC_QUOTE, contactHref } from '../routes/paths'
 
 /**
  * Gold flame/drop icon mark — SVG inline
@@ -68,7 +69,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20 border-b border-ink-border">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
+            <Link to={PATHS.HOME} className="flex items-center gap-3 group">
               <span className="text-lg md:text-xl font-bold text-white tracking-wide">
                 ORION <span className="text-gold">OIL</span>
               </span>
@@ -80,6 +81,7 @@ export default function Header() {
                 <NavLink
                   key={link.href}
                   to={link.href}
+                  end={link.href === PATHS.HOME}
                   className={({ isActive }) =>
                     `relative text-sm font-medium transition-colors duration-200 py-2 ${
                       isActive
@@ -105,7 +107,7 @@ export default function Header() {
             {/* Desktop CTA — gold pill button */}
             <div className="hidden lg:block">
               <Link
-                to="/contact"
+                to={contactHref({ topic: TOPIC_QUOTE })}
                 className="inline-flex items-center px-6 py-2.5 bg-gold text-white text-sm font-semibold rounded-full transition-all duration-200 hover:bg-gold-light hover:shadow-lg hover:-translate-y-0.5"
               >
                 Request for Quote
@@ -184,6 +186,7 @@ export default function Header() {
                   >
                     <NavLink
                       to={link.href}
+                      end={link.href === PATHS.HOME}
                       onClick={closeMenu}
                       className={({ isActive }) =>
                         `block py-3 px-4 rounded-xl text-base font-medium transition-colors duration-200 min-h-[48px] flex items-center ${
@@ -202,7 +205,7 @@ export default function Header() {
               {/* Drawer footer CTAs */}
               <div className="p-6 border-t border-ink-border space-y-3">
                 <Link
-                  to="/contact"
+                  to={contactHref({ topic: TOPIC_QUOTE })}
                   onClick={closeMenu}
                   className="flex items-center justify-center w-full py-3 bg-gold text-white font-semibold rounded-full transition-colors duration-200 hover:bg-gold-light min-h-[48px]"
                 >

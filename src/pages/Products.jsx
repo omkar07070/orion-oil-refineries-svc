@@ -1,12 +1,11 @@
-import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHeader from '../components/PageHeader'
 import AnimateOnScroll from '../components/AnimateOnScroll'
-import QuoteModal from '../components/QuoteModal'
 import SectionHeader from '../components/SectionHeader'
-import ProductCard from '../components/ProductCard'
 import SafeImage from '../components/SafeImage'
 import { productsPage } from '../data/content'
+import { PRODUCT_ANCHORS, TOPIC_QUOTE, contactHref } from '../routes/paths'
 
 // Product images — static paths matching the SVG diagrams in public/images/products/
 const PRODUCT_IMAGES = {
@@ -29,14 +28,15 @@ const PRODUCT_IMAGES = {
 }
 
 function ProductBlock({ product, reverse = false, index, imageSrc, imageAlt }) {
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
+  const anchorId = PRODUCT_ANCHORS[product.id]
 
   return (
     <AnimateOnScroll>
       <motion.div
+        id={anchorId}
         whileHover={{ y: -4, borderColor: '#C6912F' }}
         transition={{ duration: 0.3 }}
-        className="bg-ink-soft border border-ink-border rounded-xl overflow-hidden"
+        className="bg-ink-soft border border-ink-border rounded-xl overflow-hidden scroll-mt-20"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Image */}
@@ -71,22 +71,16 @@ function ProductBlock({ product, reverse = false, index, imageSrc, imageAlt }) {
                   Specs Coming Soon
                 </span>
               )}
-              <button
-                onClick={() => setIsQuoteModalOpen(true)}
+              <Link
+                to={contactHref({ topic: TOPIC_QUOTE, product: product.id })}
                 className="inline-flex items-center px-5 py-2.5 bg-gold text-white text-sm font-semibold rounded-full transition-all duration-200 hover:bg-gold-light min-h-[44px]"
               >
                 Request Quote
-              </button>
+              </Link>
             </div>
           </div>
         </div>
       </motion.div>
-
-      <QuoteModal
-        isOpen={isQuoteModalOpen}
-        onClose={() => setIsQuoteModalOpen(false)}
-        preselectedProduct={product.id}
-      />
     </AnimateOnScroll>
   )
 }
@@ -108,7 +102,7 @@ export default function Products() {
           <SectionHeader
             eyebrow="BASE OILS"
             title="Premium"
-            titleAccent="Group II Base Oils"
+            titleAccent="Group I Base Oils"
             subtitle={productsPage.baseOils.subtitle}
           />
           <div className="space-y-6">
@@ -144,7 +138,7 @@ export default function Products() {
       </section>
 
       {/* Asphalt / Bitumen */}
-      <section id="asphalt-bitumen" className="py-12 md:py-20 bg-ink relative overflow-hidden">
+      <section id="asphalt-bitumen-section" className="py-12 md:py-20 bg-ink relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,_#1a2230_0%,transparent_55%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader

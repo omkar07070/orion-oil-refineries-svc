@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import AnimateOnScroll from '../components/AnimateOnScroll'
 import FeatureCard from '../components/FeatureCard'
-import QuoteModal from '../components/QuoteModal'
 import SectionHeader from '../components/SectionHeader'
 import { aboutPage } from '../data/content'
+import { FACILITY_ANCHOR, TOPIC_QUOTE, contactHref } from '../routes/paths'
 // About page hero image — served from public/images/
 const REFINERY_IMAGE = '/images/orion_oil1.png.avif'
 
@@ -55,7 +55,6 @@ function AboutBlock({ title, subtitle, content, reverse = false, eyebrow, imageS
 }
 
 export default function About() {
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
   return (
     <>
       <PageHeader
@@ -69,7 +68,6 @@ export default function About() {
       <section className="py-12 md:py-20 bg-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AboutBlock
-            eyebrow="WHO WE ARE"
             title={aboutPage.whoWeAre.title}
             content={aboutPage.whoWeAre.content}
             imageSrc={REFINERY_IMAGE}
@@ -81,7 +79,6 @@ export default function About() {
       <section className="py-12 md:py-20 bg-ink-soft">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
-            <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-3 block">OUR MISSION</span>
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">{aboutPage.mission.title}</h3>
             <h4 className="text-base text-gold mb-6 font-medium">{aboutPage.mission.subtitle}</h4>
             {aboutPage.mission.content.map((para, i) => (
@@ -95,7 +92,6 @@ export default function About() {
       <section className="py-12 md:py-20 bg-ink">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
-            <span className="text-gold uppercase tracking-widest text-xs font-semibold mb-3 block">OUR VISION</span>
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">{aboutPage.vision.title}</h3>
             <h4 className="text-base text-gold mb-6 font-medium">{aboutPage.vision.subtitle}</h4>
             {aboutPage.vision.content.map((para, i) => (
@@ -106,7 +102,7 @@ export default function About() {
       </section>
 
       {/* Facility */}
-      <section className="py-12 md:py-20 bg-ink-soft">
+      <section id={FACILITY_ANCHOR} className="py-12 md:py-20 bg-ink-soft scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="OUR FACILITY"
@@ -164,19 +160,14 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Ready to Partner with Orion Oil?</h2>
           <p className="text-slate mb-6 max-w-2xl mx-auto">Experience the difference of domestic quality and reliability.</p>
-          <button
-            onClick={() => setIsQuoteModalOpen(true)}
+          <Link
+            to={contactHref({ topic: TOPIC_QUOTE })}
             className="inline-flex items-center px-6 py-3 bg-gold text-white font-semibold rounded-full transition-all duration-200 hover:bg-gold-light min-h-[48px]"
           >
             Request for Quote
-          </button>
+          </Link>
         </div>
       </section>
-
-      <QuoteModal
-        isOpen={isQuoteModalOpen}
-        onClose={() => setIsQuoteModalOpen(false)}
-      />
     </>
   )
 }

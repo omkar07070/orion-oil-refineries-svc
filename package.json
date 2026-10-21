@@ -8,8 +8,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build:sitemap && vite build",
     "build:specs": "node scripts/generate-specs.js",
+    "build:sitemap": "node scripts/generate-sitemap.js",
     "preview": "vite preview",
     "postinstall": "node scripts/patch-rollup.cjs"
   },

@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom'
+
 /**
  * Shared Button component —统一 primary (gold pill) and secondary (outlined) styles.
- * @param {{ variant?: 'primary' | 'secondary', href?: string, onClick?: () => void, children: React.ReactNode, className?: string, type?: string, disabled?: boolean }} props
+ * @param {{ variant?: 'primary' | 'secondary', href?: string, to?: string, onClick?: () => void, children: React.ReactNode, className?: string, type?: string, disabled?: boolean }} props
  */
 export default function Button({
   variant = 'primary',
   href,
+  to,
   onClick,
   children,
   className = '',
@@ -39,6 +42,14 @@ export default function Button({
   `
 
   const classes = variant === 'primary' ? primaryClasses : secondaryClasses
+
+  if (to) {
+    return (
+      <Link to={to} className={`${classes} ${className}`}>
+        {children}
+      </Link>
+    )
+  }
 
   if (href) {
     return (

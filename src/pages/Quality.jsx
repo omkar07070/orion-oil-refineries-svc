@@ -97,7 +97,7 @@ export default function Quality() {
 
       {/* Test Parameters Table */}
       <section className="py-12 md:py-20 bg-ink-soft">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="TEST STANDARDS"
             title="Key"
@@ -107,44 +107,187 @@ export default function Quality() {
           />
 
           <AnimateOnScroll>
-            {/* Desktop: table layout */}
-            <div className="hidden md:block bg-ink border border-ink-border rounded-xl overflow-x-auto">
-              <table className="w-full min-w-[500px]">
+            <div className="specs-table-wrap">
+              <table className="specs-table">
                 <thead>
-                  <tr className="border-b border-ink-border">
-                    <th className="px-6 py-4 text-left text-xs font-semibold text-gold uppercase tracking-wider">Property Measured</th>
-                    <th className="px-6 py-4 text-left text-xs font-semibold text-gold uppercase tracking-wider">Standard Method</th>
+                  <tr>
+                    <th scope="col" className="specs-table__head">Property Measured</th>
+                    <th scope="col" className="specs-table__head">Standard Method</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {qualityPage.testParameters.map((param, i) => (
-                    <tr
-                      key={param.property}
-                      className={`border-b border-ink-border last:border-0 ${i % 2 === 1 ? 'bg-ink/40' : ''}`}
-                    >
-                      <td className="px-6 py-4 text-sm text-white">{param.property}</td>
-                      <td className="px-6 py-4 text-sm text-gold font-mono">{param.standard}</td>
+                  {qualityPage.testParameters.map((param) => (
+                    <tr key={param.property} className="specs-table__row">
+                      <td className="specs-table__prop">{param.property}</td>
+                      <td className="specs-table__std">
+                        <span className="specs-table__code font-mono">{param.standard}</span>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-
-            {/* Mobile: stacked card layout */}
-            <div className="md:hidden grid grid-cols-1 gap-3">
-              {qualityPage.testParameters.map((param, i) => (
-                <div
-                  key={param.property}
-                  className={`bg-ink border border-ink-border rounded-xl p-4 ${i % 2 === 1 ? 'bg-ink/60' : ''}`}
-                >
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-white">{param.property}</span>
-                    <span className="text-sm text-gold font-mono">{param.standard}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
           </AnimateOnScroll>
+
+          <style>{`
+            /* ── Test Parameters table (scoped to .specs-table-*) ───── */
+
+            .specs-table-wrap {
+              width: 100%;
+              max-width: 1080px;
+              margin-inline: auto;
+              background: #0B0F14;
+              border: 1px solid #22282F;
+              border-radius: 16px;
+              overflow: hidden;
+              box-shadow: 0 20px 45px -25px rgba(0, 0, 0, 0.8);
+            }
+
+            .specs-table {
+              width: 100%;
+              border-collapse: collapse;
+              table-layout: fixed;
+            }
+
+            .specs-table__head {
+              padding: 26px 32px;
+              text-align: left;
+              font-size: clamp(14px, 0.85vw + 11px, 15px);
+              font-weight: 700;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: #C6912F;
+              background: rgba(255, 255, 255, 0.02);
+              border-bottom: 2px solid #C6912F;
+            }
+
+            /* table-layout: fixed takes the column widths from the first row */
+            .specs-table thead th:nth-child(1) { width: 58%; }
+            .specs-table thead th:nth-child(2) { width: 42%; }
+
+            .specs-table__row {
+              transition: background-color 150ms ease;
+            }
+
+            .specs-table__row:nth-child(even) {
+              background-color: rgba(255, 255, 255, 0.025);
+            }
+
+            .specs-table__row:hover {
+              background-color: rgba(198, 145, 47, 0.06);
+            }
+
+            .specs-table__prop,
+            .specs-table__std {
+              padding: 20px 32px;
+              vertical-align: middle;
+              border-bottom: 1px solid #22282F;
+            }
+
+            .specs-table__row:last-child .specs-table__prop,
+            .specs-table__row:last-child .specs-table__std {
+              border-bottom: 0;
+            }
+
+            .specs-table__prop {
+              font-size: clamp(19px, 1.05vw + 15px, 21px);
+              font-weight: 500;
+              line-height: 1.35;
+              color: #FFFFFF;
+            }
+
+            .specs-table__code {
+              display: inline-flex;
+              align-items: center;
+              gap: 10px;
+              font-size: clamp(18px, 1vw + 14px, 20px);
+              font-weight: 600;
+              letter-spacing: 0.03em;
+              color: #C6912F;
+            }
+
+            .specs-table__code::before {
+              content: '';
+              width: 7px;
+              height: 7px;
+              flex-shrink: 0;
+              border-radius: 50%;
+              background: #C6912F;
+              opacity: 0.85;
+            }
+
+            .specs-table__row:hover .specs-table__code {
+              color: #D9A83D;
+            }
+
+            .specs-table__row:hover .specs-table__prop {
+              box-shadow: inset 3px 0 0 0 #C6912F;
+            }
+
+            /* ≤768px — keep two columns, scale type and padding down */
+            @media (max-width: 768px) {
+              .specs-table__head {
+                padding: 18px 16px;
+                font-size: 14px;
+                letter-spacing: 0.1em;
+              }
+
+              .specs-table__prop,
+              .specs-table__std {
+                padding: 14px 16px;
+              }
+
+              .specs-table__prop {
+                font-size: 16px;
+              }
+
+              .specs-table__code {
+                gap: 8px;
+                font-size: 15px;
+              }
+
+              .specs-table__code::before {
+                width: 6px;
+                height: 6px;
+              }
+            }
+
+            /* ≤480px — stack property above the standard, no horizontal scroll */
+            @media (max-width: 480px) {
+              .specs-table-wrap {
+                border-radius: 12px;
+              }
+
+              .specs-table,
+              .specs-table tbody,
+              .specs-table tr,
+              .specs-table td {
+                display: block;
+                width: 100%;
+              }
+
+              /* Keep the column headers for assistive tech, out of the visual flow */
+              .specs-table thead {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                margin: -1px;
+                padding: 0;
+                overflow: hidden;
+                clip-path: inset(50%);
+                white-space: nowrap;
+              }
+
+              .specs-table__prop {
+                padding: 14px 16px 4px;
+                border-bottom: 0;
+              }
+
+              .specs-table__std {
+                padding: 0 16px 14px;
+              }
+            }
+          `}</style>
         </div>
       </section>
 
